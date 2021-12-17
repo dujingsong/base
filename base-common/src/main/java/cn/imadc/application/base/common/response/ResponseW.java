@@ -1,5 +1,6 @@
 package cn.imadc.application.base.common.response;
 
+import cn.imadc.application.base.common.code.ResponseCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,5 +27,21 @@ public class ResponseW implements Serializable {
     public ResponseW(String code, Object body) {
         this.code = code;
         this.body = body;
+    }
+
+    public static ResponseW success() {
+        return new ResponseW(ResponseCode.SUCCESS);
+    }
+
+    public static ResponseW error() {
+        return new ResponseW(ResponseCode.ERROR);
+    }
+
+    public static ResponseW success(Object body) {
+        return new ResponseW(ResponseCode.SUCCESS, body);
+    }
+
+    public static ResponseW error(String msg) {
+        return new ResponseW(ResponseCode.ERROR, msg);
     }
 }

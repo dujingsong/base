@@ -1,8 +1,10 @@
 package cn.imadc.application.base.codegenerator.generator;
 
 import cn.imadc.application.base.codegenerator.constant.FastAutoGeneratorConfig;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 import java.io.File;
@@ -15,6 +17,7 @@ public class BaseFastAutoGenerator {
         Map<OutputFile, String> pathInfoMap = new HashMap<>();
         for (OutputFile outputFile : OutputFile.values()) {
             if (outputFile.equals(OutputFile.other)) {
+                pathInfoMap.put(outputFile, outputDir + File.separatorChar + "dto" + File.separatorChar + "request");
                 continue;
             }
             if (outputFile.equals(OutputFile.serviceImpl)) {
@@ -28,6 +31,8 @@ public class BaseFastAutoGenerator {
             }
             pathInfoMap.put(outputFile, outputDir + File.separatorChar + outputFile.name());
         }
+        Map<String, String> customFileMap = new HashMap<>();
+        customFileMap.put(NamingStrategy.capitalFirst(NamingStrategy.underlineToCamel(moduleName)) + "FindReqDTO.java", FastAutoGeneratorConfig.FIND_DTO_TML);
 
         FastAutoGenerator.create(dbUrl, dbUserName, dbPassword)
                 .globalConfig(builder -> {
@@ -55,7 +60,14 @@ public class BaseFastAutoGenerator {
                             .controller(FastAutoGeneratorConfig.CONTROLLER_TML)
                             .build();
                 })
+                .injectionConfig(builder -> {
+                    builder.customFile(customFileMap).build();
+                })
                 .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                 .execute();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(StringUtils.underlineToCamel("role"));
     }
 }

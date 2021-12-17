@@ -23,6 +23,7 @@
     </properties>
 
     <modules>
+        <module>base-code-generator</module>
         <module>base-common</module>
         <module>base-toolkit</module>
         <module>base-mybatis-plus</module>

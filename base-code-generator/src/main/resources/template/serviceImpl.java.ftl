@@ -1,11 +1,18 @@
 package ${package.ServiceImpl};
 
 import cn.imadc.application.base.mybatisplus.repository.impl.BaseMPServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import ${package.Entity}.${entity};
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import cn.imadc.application.base.common.response.ResponseW;
+import com.wxsbank.base.iamp.core.data.Constant;
+import ${package.Parent}.dto.request.${entity}FindReqDTO;
 
 /**
  * <p>
@@ -24,5 +31,38 @@ open class ${table.serviceImplName} : BaseMPServiceImpl<${table.mapperName}, ${e
 <#else>
 public class ${table.serviceImplName} extends BaseMPServiceImpl<${table.mapperName}, ${entity}> implements ${table.serviceName} {
 
+    @Override
+    public ResponseW find(${entity}FindReqDTO reqDTO) {
+        QueryWrapper<${entity}> queryWrapper = buildQueryWrapper(reqDTO);
+
+        if (!reqDTO.pageQuery()) return ResponseW.success(list(queryWrapper));
+
+        Page<${entity}> page = new Page<>(reqDTO.getPageNum(), reqDTO.getPageSize(), true);
+        IPage<${entity}> pageData = page(page, queryWrapper);
+        return ResponseW.success(pageData);
+    }
+
+    private QueryWrapper<${entity}> buildQueryWrapper(${entity}FindReqDTO reqDTO) {
+        QueryWrapper<${entity}> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(Constant.DEL_FLAG, Constant.NOT_DEL_VAL);
+
+        return queryWrapper;
+    }
+
+    @Override
+    public ResponseW add(${entity} ${entity}) {
+        return save(${entity}) ? ResponseW.success() : ResponseW.error();
+    }
+
+    @Override
+    public ResponseW edit(${entity} ${entity}) {
+        return updateById(${entity}) ? ResponseW.success() : ResponseW.error();
+    }
+
+    @Override
+    public ResponseW delete(${entity} ${entity}) {
+        boolean status = update(new UpdateWrapper<${entity}>().set(Constant.DEL_FLAG, Constant.DEL_VAL));
+        return status ? ResponseW.success() : ResponseW.error();
+    }
 }
 </#if>
