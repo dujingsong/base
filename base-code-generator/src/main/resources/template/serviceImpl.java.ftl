@@ -50,19 +50,21 @@ public class ${table.serviceImplName} extends BaseMPServiceImpl<${table.mapperNa
     }
 
     @Override
-    public ResponseW add(${entity} ${entity}) {
-        return save(${entity}) ? ResponseW.success() : ResponseW.error();
+    public ResponseW add(${entity} ${entity?uncap_first}) {
+        return save(${entity?uncap_first}) ? ResponseW.success() : ResponseW.error();
     }
 
     @Override
-    public ResponseW edit(${entity} ${entity}) {
-        return updateById(${entity}) ? ResponseW.success() : ResponseW.error();
+    public ResponseW edit(${entity} ${entity?uncap_first}) {
+        return updateById(${entity?uncap_first}) ? ResponseW.success() : ResponseW.error();
     }
 
     @Override
-    public ResponseW delete(${entity} ${entity}) {
-        boolean status = update(new UpdateWrapper<${entity}>().set(Constant.DEL_FLAG, Constant.DEL_VAL));
-        return status ? ResponseW.success() : ResponseW.error();
+    public ResponseW delete(${entity} ${entity?uncap_first}) {
+        UpdateWrapper<${entity}> userUpdateWrapper = new UpdateWrapper<>();
+        userUpdateWrapper.eq("id", ${entity?uncap_first}.getId());
+        userUpdateWrapper.set(Constant.DEL_FLAG, Constant.DEL_VAL);
+        return update(userUpdateWrapper) ? ResponseW.success() : ResponseW.error();
     }
 }
 </#if>
