@@ -37,7 +37,7 @@ public class ${table.serviceImplName} extends BaseMPServiceImpl<${table.mapperNa
 
         if (!reqDTO.pageQuery()) return ResponseW.success(list(queryWrapper));
 
-        Page<${entity}> page = new Page<>(reqDTO.getPageNum(), reqDTO.getPageSize(), true);
+        Page<${entity}> page = new Page<>(reqDTO.getPageNo(), reqDTO.getPageSize(), true);
         IPage<${entity}> pageData = page(page, queryWrapper);
         return ResponseW.success(pageData);
     }
