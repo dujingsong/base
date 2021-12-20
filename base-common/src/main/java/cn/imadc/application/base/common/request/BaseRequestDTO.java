@@ -8,6 +8,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class BaseRequestDTO implements Serializable {
-    public static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
 }
