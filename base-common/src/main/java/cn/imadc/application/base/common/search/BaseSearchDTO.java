@@ -14,6 +14,7 @@ public class BaseSearchDTO implements Serializable {
     private Integer pageNo;
     private Integer pageSize;
     private Map<String, String> extra;
+    private String keywords;
 
     public boolean pageQuery() {
         return null != pageNo && null != pageSize;
