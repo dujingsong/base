@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Map;
 
 @Getter
@@ -13,8 +14,12 @@ public class BaseSearchDTO implements Serializable {
 
     private Integer pageNo;
     private Integer pageSize;
-    private Map<String, String> extra;
+
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String keywords;
+
+    private Map<String, String> extra;
 
     public boolean pageQuery() {
         return null != pageNo && null != pageSize;
