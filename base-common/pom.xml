@@ -7,11 +7,11 @@
     <parent>
         <groupId>cn.imadc.application</groupId>
         <artifactId>base</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>release-0.0.1</version>
     </parent>
 
     <artifactId>base-common</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>release-0.0.1</version>
     <packaging>jar</packaging>
 
     <name>base-common</name>
