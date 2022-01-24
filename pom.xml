@@ -31,6 +31,8 @@
         <module>base-redisson</module>
         <module>base-rocketmq</module>
         <module>base-samples</module>
+        <module>base-skeleton-dependency</module>
+        <module>base-auth-jwt</module>
     </modules>
 
     <dependencies>
