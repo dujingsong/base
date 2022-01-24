@@ -71,6 +71,12 @@
             <artifactId>base-toolkit</artifactId>
             <version>${base.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-auth-jwt</artifactId>
+            <version>${base.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

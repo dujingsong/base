@@ -17,8 +17,18 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
+/**
+ * 密钥工具
+ */
 public class PemUtils {
 
+    /**
+     * 解析密钥文件
+     *
+     * @param pemFile 密钥文件
+     * @return 密钥bute
+     * @throws IOException
+     */
     private static byte[] parsePEMFile(File pemFile) throws IOException {
         if (!pemFile.isFile() || !pemFile.exists()) {
             throw new FileNotFoundException(String.format("The file '%s' doesn't exist.", pemFile.getAbsolutePath()));
@@ -30,6 +40,13 @@ public class PemUtils {
         return content;
     }
 
+    /**
+     * 获取公钥
+     *
+     * @param keyBytes  公钥信息
+     * @param algorithm 加密算法
+     * @return 公钥
+     */
     private static PublicKey getPublicKey(byte[] keyBytes, String algorithm) {
         PublicKey publicKey = null;
         try {
@@ -45,6 +62,13 @@ public class PemUtils {
         return publicKey;
     }
 
+    /**
+     * 获取私钥
+     *
+     * @param keyBytes  私钥信息
+     * @param algorithm 加密算法
+     * @return 私钥
+     */
     private static PrivateKey getPrivateKey(byte[] keyBytes, String algorithm) {
         PrivateKey privateKey = null;
         try {
@@ -60,16 +84,31 @@ public class PemUtils {
         return privateKey;
     }
 
+    /**
+     * 读取公钥文件
+     *
+     * @param filepath  公钥文件
+     * @param algorithm 加密算法
+     * @return 公钥文件
+     * @throws IOException
+     */
     public static PublicKey readPublicKeyFromFile(String filepath, String algorithm) throws IOException {
         File file = ResourceUtils.getFile(filepath);
         byte[] bytes = PemUtils.parsePEMFile(file);
         return PemUtils.getPublicKey(bytes, algorithm);
     }
 
+    /**
+     * 读取私钥文件
+     *
+     * @param filepath  私钥文件
+     * @param algorithm 加密算法
+     * @return 私钥文件
+     * @throws IOException
+     */
     public static PrivateKey readPrivateKeyFromFile(String filepath, String algorithm) throws IOException {
         File file = ResourceUtils.getFile(filepath);
         byte[] bytes = PemUtils.parsePEMFile(file);
         return PemUtils.getPrivateKey(bytes, algorithm);
     }
-
 }
