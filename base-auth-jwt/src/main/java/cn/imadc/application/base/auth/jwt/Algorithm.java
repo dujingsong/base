@@ -5,16 +5,21 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
 /**
+ * <p>
  * JWT加解密算法
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2021-12-24
  */
 public class Algorithm {
 
     private static com.auth0.jwt.algorithms.Algorithm algorithm;
 
     // 公钥存放路径
-    private static final String PUBLIC_KEY_PATH = "classpath:key/rsa_pub.key";
+    private static final String PUBLIC_KEY_PATH = "key/rsa_pub.key";
     // 私钥存放路径
-    private static final String PRIVATE_KEY_PATH = "classpath:key/rsa_pri.key";
+    private static final String PRIVATE_KEY_PATH = "key/rsa_pri.key";
 
     static {
         // 初始化

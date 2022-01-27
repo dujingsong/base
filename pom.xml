@@ -17,6 +17,7 @@
     <name>base</name>
 
     <properties>
+        <base.version>release-0.0.1</base.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
