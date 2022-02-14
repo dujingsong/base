@@ -1,5 +1,7 @@
 package cn.imadc.application.base.common.context;
 
+import lombok.NonNull;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 import static java.lang.ThreadLocal.withInitial;
@@ -33,6 +35,18 @@ public class RequestContext extends ConcurrentHashMap<String, Object> {
     }
 
     /**
+     * 存放键值，如果值为空值则移除键
+     *
+     * @param key   键
+     * @param value 值
+     * @return 存放结果
+     */
+    public Object put(@NonNull String key, Object value) {
+        if (null == value) return super.remove(key);
+        return super.put(key, value);
+    }
+
+    /**
      * 根据键和值类型获取
      *
      * @param key   键
@@ -41,7 +55,7 @@ public class RequestContext extends ConcurrentHashMap<String, Object> {
      * @return 值
      */
     @SuppressWarnings("unchecked")
-    public <T> T get(Object key, Class<T> clazz) {
+    public <T> T get(@NonNull String key, @NonNull Class<T> clazz) {
         return (T) super.get(key);
     }
 
