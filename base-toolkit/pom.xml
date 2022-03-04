@@ -7,11 +7,11 @@
     <parent>
         <groupId>cn.imadc.application</groupId>
         <artifactId>base</artifactId>
-        <version>release-0.0.1</version>
+        <version>release-0.0.2</version>
     </parent>
 
     <artifactId>base-toolkit</artifactId>
-    <version>release-0.0.1</version>
+    <version>release-0.0.2</version>
 
     <name>base-toolkit</name>
 
