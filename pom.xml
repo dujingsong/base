@@ -34,6 +34,7 @@
         <module>base-samples</module>
         <module>base-skeleton-dependency</module>
         <module>base-auth-jwt</module>
+        <module>base-netty</module>
     </modules>
 
     <dependencies>
