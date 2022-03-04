@@ -7,7 +7,7 @@
     <parent>
         <artifactId>base</artifactId>
         <groupId>cn.imadc.application</groupId>
-        <version>release-0.0.1</version>
+        <version>release-0.0.2</version>
     </parent>
 
     <artifactId>base-auth-jwt</artifactId>

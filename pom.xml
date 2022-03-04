@@ -7,17 +7,17 @@
     <parent>
         <groupId>cn.imadc.application</groupId>
         <artifactId>base-dependencies</artifactId>
-        <version>release-0.0.1</version>
+        <version>release-0.0.2</version>
     </parent>
 
     <artifactId>base</artifactId>
-    <version>release-0.0.1</version>
+    <version>release-0.0.2</version>
     <packaging>pom</packaging>
 
     <name>base</name>
 
     <properties>
-        <base.version>release-0.0.1</base.version>
+        <base.version>release-0.0.2</base.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -34,6 +34,7 @@
         <module>base-samples</module>
         <module>base-skeleton-dependency</module>
         <module>base-auth-jwt</module>
+        <module>base-netty</module>
     </modules>
 
     <dependencies>
