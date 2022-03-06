@@ -35,6 +35,8 @@
         <module>base-skeleton-dependency</module>
         <module>base-auth-jwt</module>
         <module>base-netty</module>
+        <module>base-data-structure</module>
+        <module>base-lettuce</module>
     </modules>
 
     <dependencies>

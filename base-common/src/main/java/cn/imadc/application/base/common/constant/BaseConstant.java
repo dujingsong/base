@@ -14,6 +14,9 @@ public class BaseConstant {
     public static final String COMMA = ",";
     public static final String BLANK = "";
     public static final String SLASH = "/";
+    public static final String WELL_NUMBER = "#";
+    public static final String EQUAL_SIGN = "=";
+    public static final String COLON = ":";
 
     // --------------------日期常量--------------------
     public static final String YYYY_MM_DD = "YYYY-MM-dd";
