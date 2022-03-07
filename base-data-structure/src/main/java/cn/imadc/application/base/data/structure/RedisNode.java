@@ -16,7 +16,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RedisNode implements IEnumAble {
 
-    DEFAULT,
+    MASTER,
+    SLAVE,
     SENTINEL,
     ;
 

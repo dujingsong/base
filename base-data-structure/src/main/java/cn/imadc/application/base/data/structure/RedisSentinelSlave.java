@@ -8,15 +8,15 @@ import java.io.Serializable;
 
 /**
  * <p>
- * sentinel masters信息
+ * sentinel slaves masterName
  * </p>
  *
  * @author 杜劲松
- * @since 2022-03-04
+ * @since 2022-03-05
  */
 @Getter
 @Setter
-public class RedisSentinelMaster implements Serializable {
+public class RedisSentinelSlave implements Serializable {
 
     @JSONField(name = "name")
     private String name;
@@ -60,22 +60,21 @@ public class RedisSentinelMaster implements Serializable {
     @JSONField(name = "role-reported-time")
     private String roleReportedTime;
 
-    @JSONField(name = "config-epoch")
-    private String configEpoch;
+    @JSONField(name = "master-link-down-time")
+    private String masterLinkDownTime;
 
-    @JSONField(name = "num-slaves")
-    private String numSlaves;
+    @JSONField(name = "master-link-status")
+    private String masterLinkStatus;
 
-    @JSONField(name = "num-other-sentinels")
-    private String numOtherSentinels;
+    @JSONField(name = "master-host")
+    private String masterHost;
 
-    @JSONField(name = "quorum")
-    private String quorum;
+    @JSONField(name = "master-port")
+    private Integer masterPort;
 
-    @JSONField(name = "failover-timeout")
-    private String failoverTimeout;
+    @JSONField(name = "slave-priority")
+    private String slavePriority;
 
-    @JSONField(name = "parallel-syncs")
-    private String parallelSyncs;
-
+    @JSONField(name = "slave-repl-offset")
+    private String slaveReplOffset;
 }

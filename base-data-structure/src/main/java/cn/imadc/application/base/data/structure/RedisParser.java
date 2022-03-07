@@ -172,6 +172,16 @@ public class RedisParser {
     }
 
     /**
+     * 解析多个redis slaves master
+     *
+     * @param infoJson 预处理成的json
+     * @return 解析后的class
+     */
+    public static List<RedisSentinelSlave> parseSentinelSlaves(String infoJson) {
+        return JsonUtil.jsonToList(infoJson, RedisSentinelSlave.class);
+    }
+
+    /**
      * 解析单个redis sentinel master
      *
      * @param infoJson 预处理成的json
