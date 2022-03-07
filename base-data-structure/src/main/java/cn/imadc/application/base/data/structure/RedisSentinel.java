@@ -25,7 +25,7 @@ public class RedisSentinel implements Serializable {
     private String ip;
 
     @JSONField(name = "port")
-    private String port;
+    private Integer port;
 
     @JSONField(name = "runid")
     private String runId;

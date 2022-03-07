@@ -1,8 +1,10 @@
 package cn.imadc.application.base.lettuce;
 
 import io.lettuce.core.RedisURI;
+import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.api.sync.RedisCommands;
 import io.lettuce.core.dynamic.RedisCommandFactory;
+import io.lettuce.core.sentinel.api.StatefulRedisSentinelConnection;
 import io.lettuce.core.sentinel.api.sync.RedisSentinelCommands;
 import org.apache.commons.lang3.StringUtils;
 
@@ -24,10 +26,13 @@ import java.util.concurrent.locks.ReentrantLock;
 public class RedisClient {
 
     private final ConcurrentMap<String, io.lettuce.core.RedisClient> clientTables = new ConcurrentHashMap<>();
-    private final ConcurrentMap<String, RedisCommands<String, String>> redisCommandsTables = new ConcurrentHashMap<>();
-    private final ConcurrentMap<String, RedisSentinelCommands<String, String>> redisSentinelCommandsTables = new ConcurrentHashMap<>();
-    protected final Lock lockRedisCommandsTables = new ReentrantLock();
-    protected final Lock lockRedisSentinelCommands = new ReentrantLock();
+    private final ConcurrentMap<String, StatefulRedisSentinelConnection<String, String>>
+            sentinelConnectionTables = new ConcurrentHashMap<>();
+    private final ConcurrentMap<String, StatefulRedisConnection<String, String>>
+            connectionTables = new ConcurrentHashMap<>();
+    protected final Lock lockSentinelConnectionTables = new ReentrantLock();
+    protected final Lock lockConnectionTables = new ReentrantLock();
+
     protected static final long LOCK_TIMEOUT_MILLIS = 3000L;
     protected static final long CLIENT_DEFAULT_TIMEOUT = 10 * 1000;
 
@@ -46,55 +51,66 @@ public class RedisClient {
         return redisClient;
     }
 
-    public RedisCommands<String, String> getRedisCommands(String host, int port, String password)
-            throws InterruptedException {
+    public StatefulRedisSentinelConnection<String, String> getSentinelConnection(String host, int port
+            , String password) throws InterruptedException {
+        StatefulRedisSentinelConnection<String, String> connection = sentinelConnectionTables.get(host + port);
+        if (null != connection && connection.isOpen()) return connection;
 
-        RedisCommands<String, String> redisCommands = redisCommandsTables.get(host + port);
-        if (null != redisCommands && redisCommands.isOpen()) return redisCommands;
-
-        if (!this.lockRedisCommandsTables.tryLock(LOCK_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)) {
+        if (!this.lockSentinelConnectionTables.tryLock(LOCK_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)) {
             return null;
         }
 
         try {
 
             io.lettuce.core.RedisClient redisClient = getClient(host, port, password);
-            redisCommands = redisClient.connect().sync();
-            redisCommandsTables.put(host + port, redisCommands);
+            connection = redisClient.connectSentinel();
+            sentinelConnectionTables.put(host + port, connection);
 
         } finally {
-            this.lockRedisCommandsTables.unlock();
+            this.lockSentinelConnectionTables.unlock();
         }
 
-        return redisCommands;
+        return connection;
+    }
+
+    public StatefulRedisConnection<String, String> getConnection(String host, int port, String password)
+            throws InterruptedException {
+        StatefulRedisConnection<String, String> connection = connectionTables.get(host + port);
+        if (null != connection && connection.isOpen()) return connection;
+
+        if (!this.lockConnectionTables.tryLock(LOCK_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)) {
+            return null;
+        }
+
+        try {
+
+            io.lettuce.core.RedisClient redisClient = getClient(host, port, password);
+            connection = redisClient.connect();
+            connectionTables.put(host + port, connection);
+
+        } finally {
+            this.lockConnectionTables.unlock();
+        }
+
+        return connection;
+    }
+
+    public RedisCommands<String, String> getRedisCommands(String host, int port, String password)
+            throws InterruptedException {
+
+        return getConnection(host, port, password).sync();
     }
 
     public RedisSentinelCommands<String, String> getRedisSentinelCommands(String host, int port, String password)
             throws InterruptedException {
 
-        RedisSentinelCommands<String, String> redisSentinelCommands = redisSentinelCommandsTables.get(host + port);
-        if (null != redisSentinelCommands && redisSentinelCommands.isOpen()) return redisSentinelCommands;
-
-        if (!this.lockRedisSentinelCommands.tryLock(LOCK_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)) {
-            return null;
-        }
-
-        try {
-
-            io.lettuce.core.RedisClient redisClient = getClient(host, port, password);
-            redisSentinelCommands = redisClient.connectSentinel().sync();
-            redisSentinelCommandsTables.put(host + port, redisSentinelCommands);
-
-        } finally {
-            this.lockRedisSentinelCommands.unlock();
-        }
-
-        return redisSentinelCommands;
+        return getSentinelConnection(host, port, password).sync();
     }
 
-    public RedisSentinelExtensionCommands getRedisSentinelExtensionCommands(String host, int port, String password) {
-        io.lettuce.core.RedisClient redisClient = getClient(host, port, password);
-        RedisCommandFactory factory = new RedisCommandFactory(redisClient.connect());
+    public RedisSentinelExtensionCommands getRedisSentinelExtensionCommands(String host, int port, String password)
+            throws InterruptedException {
+        StatefulRedisConnection<String, String> statefulRedisConnection = getConnection(host, port, password);
+        RedisCommandFactory factory = new RedisCommandFactory(statefulRedisConnection);
         return factory.getCommands(RedisSentinelExtensionCommands.class);
     }
 }
