@@ -81,6 +81,9 @@ public class RedisParser {
                 // 处理slave
                 if (entry.getKey().startsWith("slave")) {
                     String val = entry.getValue();
+                    // to avoid slave node
+                    if (!val.contains(BaseConstant.COMMA)) continue;
+
                     String[] propArray = val.split(BaseConstant.COMMA);
 
                     RedisInfo.Replication.Slave slave = new RedisInfo.Replication.Slave();

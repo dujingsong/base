@@ -25,8 +25,17 @@ public class BaseConstant {
     public final static String CREATE_BY = "create_by";
     public final static String UPDATE_BY = "update_by";
 
+    public final static String CREATE_BY_F = "createBy";
+    public final static String UPDATE_BY_F = "updateBy";
+
     public final static String CREATE_BY_ID = "create_by_id";
     public final static String UPDATE_BY_ID = "update_by_id";
+
+    public final static String CREATE_BY_ID_F = "createById";
+    public final static String UPDATE_BY_ID_F = "updateById";
+
+    public final static Long SYSTEM_ID = 0L;
+    public final static String SYSTEM_NAME = "system";
 
     // --------------------删除标识--------------------
     public static final String DEL_FLAG = "del_flag";

@@ -131,19 +131,19 @@ public class RedisInfo implements Serializable {
     public static class Memory {
 
         @JSONField(name = "used_memory")
-        private String usedMemory;
+        private Long usedMemory;
 
         @JSONField(name = "used_memory_human")
         private String usedMemoryHuman;
 
         @JSONField(name = "used_memory_rss")
-        private String usedMemoryRss;
+        private Long usedMemoryRss;
 
         @JSONField(name = "used_memory_rss_human")
         private String usedMemoryRssHuman;
 
         @JSONField(name = "used_memory_peak")
-        private String usedMemoryPeak;
+        private Long usedMemoryPeak;
 
         @JSONField(name = "used_memory_peak_human")
         private String usedMemoryPeakHuman;
@@ -152,31 +152,31 @@ public class RedisInfo implements Serializable {
         private String usedMemoryPeakPerc;
 
         @JSONField(name = "used_memory_overhead")
-        private String usedMemoryOverhead;
+        private Long usedMemoryOverhead;
 
         @JSONField(name = "used_memory_startup")
-        private String usedMemoryStartup;
+        private Long usedMemoryStartup;
 
         @JSONField(name = "used_memory_dataset")
-        private String usedMemoryDataset;
+        private Long usedMemoryDataset;
 
         @JSONField(name = "used_memory_dataset_perc")
         private String usedMemoryDatasetPerc;
 
         @JSONField(name = "total_system_memory")
-        private String totalSystemMemory;
+        private Long totalSystemMemory;
 
         @JSONField(name = "total_system_memory_human")
         private String totalSystemMemoryHuman;
 
         @JSONField(name = "used_memory_lua")
-        private String usedMemoryLua;
+        private Long usedMemoryLua;
 
         @JSONField(name = "used_memory_lua_human")
         private String usedMemoryLuaHuman;
 
         @JSONField(name = "maxmemory")
-        private String maxMemory;
+        private Long maxMemory;
 
         @JSONField(name = "maxmemory_human")
         private String maxMemoryHuman;

@@ -1,5 +1,7 @@
 package cn.imadc.application.base.common.persistence;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,22 +34,26 @@ public class BaseEntity implements Serializable {
     /**
      * 创建者
      */
+    @TableField(fill = FieldFill.INSERT)
     private String createBy;
 
     /**
      * 更新者
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private String updateBy;
 
     /**
      * 创建者ID
      */
-    private String createById;
+    @TableField(fill = FieldFill.INSERT)
+    private Long createById;
 
     /**
      * 更新者ID
      */
-    private String updateById;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Long updateById;
 
     /**
      * 是否删除0：未删除；1：已删除

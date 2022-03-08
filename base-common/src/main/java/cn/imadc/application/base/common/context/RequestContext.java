@@ -60,6 +60,20 @@ public class RequestContext extends ConcurrentHashMap<String, Object> {
     }
 
     /**
+     * 根据键和值类型获取
+     *
+     * @param key   键
+     * @param clazz 值类型
+     * @param <T>   值类型
+     * @return 值
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T get(@NonNull String key, @NonNull Class<T> clazz, T defaultValue) {
+        T value = (T) super.get(key);
+        return null != value ? value : defaultValue;
+    }
+
+    /**
      * 释放
      */
     public void release() {
