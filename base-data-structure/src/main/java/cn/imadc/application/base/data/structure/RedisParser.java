@@ -117,6 +117,44 @@ public class RedisParser {
             redisInfo.getReplication().setSlaves(slaves);
         }
 
+        // 针对Keyspace节点特殊处理
+        Map<String, String> keyspace = infoMap.get("Keyspace");
+        if (null != keyspace && !keyspace.isEmpty()) {
+
+            List<RedisInfo.Keyspace.DBInfo> dbInfos = new ArrayList<>();
+
+            for (Map.Entry<String, String> entry : keyspace.entrySet()) {
+                // db
+                if (entry.getKey().startsWith("db")) {
+                    String val = entry.getValue();
+
+                    String[] propArray = val.split(BaseConstant.COMMA);
+
+                    RedisInfo.Keyspace.DBInfo dbInfo = new RedisInfo.Keyspace.DBInfo();
+                    for (String prop : propArray) {
+                        int index = prop.indexOf(BaseConstant.EQUAL_SIGN);
+                        String k = prop.substring(0, index);
+                        String v = prop.substring(index + 1);
+
+                        switch (k) {
+                            case "keys":
+                                dbInfo.setKeys(Long.parseLong(v));
+                                break;
+                            case "expires":
+                                dbInfo.setExpires(Long.parseLong(v));
+                                break;
+                            case "avg_ttl":
+                                dbInfo.setAvgTtl(Long.parseLong(v));
+                                break;
+                        }
+                    }
+                    dbInfos.add(dbInfo);
+                }
+            }
+
+            redisInfo.getKeyspace().setDbInfoList(dbInfos);
+        }
+
         // 针对Sentinel节点的特殊处理
         Map<String, String> sentinel = infoMap.get("Sentinel");
 

@@ -114,16 +114,16 @@ public class RedisInfo implements Serializable {
     @Setter
     public static class Clients {
         @JSONField(name = "connected_clients")
-        private String connectedClients;
+        private Integer connectedClients;
 
         @JSONField(name = "client_longest_output_list")
-        private String clientLongestOutputList;
+        private Long clientLongestOutputList;
 
         @JSONField(name = "client_biggest_input_buf")
-        private String clientBiggestInputBuf;
+        private Long clientBiggestInputBuf;
 
         @JSONField(name = "blocked_clients")
-        private String blockedClients;
+        private Integer blockedClients;
     }
 
     @Getter
@@ -276,19 +276,19 @@ public class RedisInfo implements Serializable {
     public static class Stats {
 
         @JSONField(name = "total_connections_received")
-        private String totalConnectionsReceived;
+        private Long totalConnectionsReceived;
 
         @JSONField(name = "total_commands_processed")
-        private String totalCommandsProcessed;
+        private Long totalCommandsProcessed;
 
         @JSONField(name = "instantaneous_ops_per_sec")
-        private String instantaneousPpsPerSec;
+        private Long instantaneousOpsPerSec;
 
         @JSONField(name = "total_net_input_bytes")
-        private String totalNetInputBytes;
+        private Long totalNetInputBytes;
 
         @JSONField(name = "total_net_output_bytes")
-        private String totalNetOutputBytes;
+        private Long totalNetOutputBytes;
 
         @JSONField(name = "instantaneous_input_kbps")
         private String instantaneousInputKbps;
@@ -309,49 +309,49 @@ public class RedisInfo implements Serializable {
         private String syncPartialErr;
 
         @JSONField(name = "expired_keys")
-        private String expiredKeys;
+        private Long expiredKeys;
 
         @JSONField(name = "expired_stale_perc")
         private String expiredStalePerc;
 
         @JSONField(name = "expired_time_cap_reached_count")
-        private String expiredTimeCapReachedCount;
+        private Long expiredTimeCapReachedCount;
 
         @JSONField(name = "evicted_keys")
-        private String evictedKeys;
+        private Long evictedKeys;
 
         @JSONField(name = "keyspace_hits")
-        private String keyspaceHits;
+        private Long keyspaceHits;
 
         @JSONField(name = "keyspace_misses")
-        private String keyspaceMisses;
+        private Long keyspaceMisses;
 
         @JSONField(name = "pubsub_channels")
-        private String pubsubChannels;
+        private Long pubsubChannels;
 
         @JSONField(name = "pubsub_patterns")
-        private String pubsubPatterns;
+        private Long pubsubPatterns;
 
         @JSONField(name = "latest_fork_usec")
-        private String latestForkUsec;
+        private Long latestForkUsec;
 
         @JSONField(name = "migrate_cached_sockets")
-        private String migrateCachedSockets;
+        private Long migrateCachedSockets;
 
         @JSONField(name = "slave_expires_tracked_keys")
-        private String slaveExpiresTrackedKeys;
+        private Long slaveExpiresTrackedKeys;
 
         @JSONField(name = "active_defrag_hits")
-        private String activeDefragHits;
+        private Long activeDefragHits;
 
         @JSONField(name = "active_defrag_misses")
-        private String activeDefragMisses;
+        private Long activeDefragMisses;
 
         @JSONField(name = "active_defrag_key_hits")
-        private String activeDefragKeyHits;
+        private Long activeDefragKeyHits;
 
         @JSONField(name = "active_defrag_key_misses")
-        private String activeDefragKeyMisses;
+        private Long activeDefragKeyMisses;
     }
 
     @Getter
@@ -431,6 +431,15 @@ public class RedisInfo implements Serializable {
     public static class Keyspace {
 
         private List<String> dbs;
+        private List<DBInfo> dbInfoList;
+
+        @Getter
+        @Setter
+        public static class DBInfo {
+            private Long keys;
+            private Long expires;
+            private Long avgTtl;
+        }
     }
 
     @Getter
