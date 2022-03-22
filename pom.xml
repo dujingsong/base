@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
 
     <name>base</name>
+    <description>基础架构-基础框架</description>
 
     <properties>
         <!-- 项目基础设置 -->
@@ -24,7 +25,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <!-- 锁定依赖版本 -->
+        <!-- 锁定基础框架版本 -->
         <base.version>release-0.0.2</base.version>
     </properties>
 
