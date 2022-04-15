@@ -1,4 +1,4 @@
-package cn.imadc.application.base.data.structure;
+package cn.imadc.application.base.data.structure.redis;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;
@@ -83,7 +83,7 @@ public class RedisInfo implements Serializable {
         private String gccVersion;
 
         @JSONField(name = "process_id")
-        private String processId;
+        private Integer processId;
 
         @JSONField(name = "run_id")
         private String runId;
@@ -92,13 +92,13 @@ public class RedisInfo implements Serializable {
         private String tcpPort;
 
         @JSONField(name = "uptime_in_seconds")
-        private String uptimeInSeconds;
+        private Long uptimeInSeconds;
 
         @JSONField(name = "uptime_in_days")
         private String uptimeInDays;
 
         @JSONField(name = "hz")
-        private String hz;
+        private Integer hz;
 
         @JSONField(name = "lru_clock")
         private String lruClock;
@@ -291,13 +291,13 @@ public class RedisInfo implements Serializable {
         private Long totalNetOutputBytes;
 
         @JSONField(name = "instantaneous_input_kbps")
-        private String instantaneousInputKbps;
+        private Double instantaneousInputKbps;
 
         @JSONField(name = "instantaneous_output_kbps")
-        private String instantaneousOutputKbps;
+        private Double instantaneousOutputKbps;
 
         @JSONField(name = "rejected_connections")
-        private String rejectedConnections;
+        private Long rejectedConnections;
 
         @JSONField(name = "sync_full")
         private String syncFull;

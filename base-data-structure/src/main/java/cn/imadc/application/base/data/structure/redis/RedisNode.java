@@ -1,4 +1,4 @@
-package cn.imadc.application.base.data.structure;
+package cn.imadc.application.base.data.structure.redis;
 
 import cn.imadc.application.base.common.action.IEnumAble;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package cn.imadc.application.base.data.structure;
+package cn.imadc.application.base.data.structure.redis;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * sentinel sentinels masterName
+ * sentinel slaves masterName
  * </p>
  *
  * @author 杜劲松
@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
-public class RedisSentinel implements Serializable {
+public class RedisSentinelSlave implements Serializable {
 
     @JSONField(name = "name")
     private String name;
@@ -51,12 +51,30 @@ public class RedisSentinel implements Serializable {
     @JSONField(name = "down-after-milliseconds")
     private String downAfterMilliseconds;
 
-    @JSONField(name = "last-hello-message")
-    private String lastHelloMessage;
+    @JSONField(name = "info-refresh")
+    private String infoRefresh;
 
-    @JSONField(name = "voted-leader")
-    private String votedLeader;
+    @JSONField(name = "role-reported")
+    private String roleReported;
 
-    @JSONField(name = "voted-leader-epoch")
-    private String votedLeaderEpoch;
+    @JSONField(name = "role-reported-time")
+    private String roleReportedTime;
+
+    @JSONField(name = "master-link-down-time")
+    private String masterLinkDownTime;
+
+    @JSONField(name = "master-link-status")
+    private String masterLinkStatus;
+
+    @JSONField(name = "master-host")
+    private String masterHost;
+
+    @JSONField(name = "master-port")
+    private Integer masterPort;
+
+    @JSONField(name = "slave-priority")
+    private String slavePriority;
+
+    @JSONField(name = "slave-repl-offset")
+    private String slaveReplOffset;
 }
