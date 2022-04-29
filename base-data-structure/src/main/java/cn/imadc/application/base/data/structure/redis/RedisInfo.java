@@ -202,43 +202,43 @@ public class RedisInfo implements Serializable {
     public static class Persistence {
 
         @JSONField(name = "loading")
-        private String loading;
+        private Integer loading;
 
         @JSONField(name = "rdb_changes_since_last_save")
-        private String rdbChangesSinceLastSave;
+        private Long rdbChangesSinceLastSave;
 
         @JSONField(name = "rdb_bgsave_in_progress")
-        private String rdbBgSaveInProgress;
+        private Integer rdbBgSaveInProgress;
 
         @JSONField(name = "rdb_last_save_time")
-        private String rdbLastSaveTime;
+        private Long rdbLastSaveTime;
 
         @JSONField(name = "rdb_last_bgsave_status")
         private String rdbLastBgSaveStatus;
 
         @JSONField(name = "rdb_last_bgsave_time_sec")
-        private String rdbLastBgSaveTimeSec;
+        private Long rdbLastBgSaveTimeSec;
 
         @JSONField(name = "rdb_current_bgsave_time_sec")
-        private String rdbCurrentBgSaveTimeSec;
+        private Long rdbCurrentBgSaveTimeSec;
 
         @JSONField(name = "rdb_last_cow_size")
-        private String rdbLastCowSize;
+        private Long rdbLastCowSize;
 
         @JSONField(name = "aof_enabled")
-        private String aofEnabled;
+        private Integer aofEnabled;
 
         @JSONField(name = "aof_rewrite_in_progress")
-        private String aofRewriteInProgress;
+        private Integer aofRewriteInProgress;
 
         @JSONField(name = "aof_rewrite_scheduled")
-        private String aofRewriteScheduled;
+        private Integer aofRewriteScheduled;
 
         @JSONField(name = "aof_last_rewrite_time_sec")
-        private String aofLastRewriteTimeSec;
+        private Long aofLastRewriteTimeSec;
 
         @JSONField(name = "aof_current_rewrite_time_sec")
-        private String aofCurrentRewriteTimeSec;
+        private Long aofCurrentRewriteTimeSec;
 
         @JSONField(name = "aof_last_bgrewrite_status")
         private String aofLastBgRewriteStatus;
@@ -247,28 +247,28 @@ public class RedisInfo implements Serializable {
         private String aofLastWriteStatus;
 
         @JSONField(name = "aof_last_cow_size")
-        private String aofLastCowSize;
+        private Long aofLastCowSize;
 
         @JSONField(name = "aof_current_size")
-        private String aofCurrentSize;
+        private Long aofCurrentSize;
 
         @JSONField(name = "aof_base_size")
-        private String aofBaseSize;
+        private Long aofBaseSize;
 
         @JSONField(name = "aof_pending_rewrite")
-        private String aofPendingRewrite;
+        private Integer aofPendingRewrite;
 
         @JSONField(name = "aof_buffer_length")
-        private String aofBufferLength;
+        private Long aofBufferLength;
 
         @JSONField(name = "aof_rewrite_buffer_length")
-        private String aofRewriteBufferLength;
+        private Long aofRewriteBufferLength;
 
         @JSONField(name = "aof_pending_bio_fsync")
-        private String aofPendingBioFsync;
+        private Integer aofPendingBioFsync;
 
         @JSONField(name = "aof_delayed_fsync")
-        private String aofDelayedFsync;
+        private Integer aofDelayedFsync;
     }
 
     @Getter
