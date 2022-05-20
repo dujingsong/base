@@ -436,6 +436,7 @@ public class RedisInfo implements Serializable {
         @Getter
         @Setter
         public static class DBInfo {
+            private Integer dbIndex;
             private Long keys;
             private Long expires;
             private Long avgTtl;

@@ -17,6 +17,7 @@ public class BaseConstant {
     public static final String WELL_NUMBER = "#";
     public static final String EQUAL_SIGN = "=";
     public static final String COLON = ":";
+    public static final String QUESTION_MARK = "?";
 
     // --------------------日期常量--------------------
     public static final String YYYY_MM_DD = "YYYY-MM-dd";

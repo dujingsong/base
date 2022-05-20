@@ -28,45 +28,19 @@ public class RedisParser {
      * @return 解析后的class
      */
     public static RedisInfo parseRedisInfo(String info) {
-        // 按回车换行符解析
-        String[] lineArray = info.split(COMMAND_SEPARATOR);
-
         // 存放每一个节点的数据
-        Map<String, Map<String, String>> infoMap = new HashMap<>();
+        Map<String, Map<String, String>> infoMap = redisInfo(info);
 
-        // 节点名
-        String section = BaseConstant.BLANK;
-        // 存放每一个节点下各个kv
-        Map<String, String> fieldMap = new HashMap<>();
-        for (int i = 0; i < lineArray.length; i++) {
-            // 按行读取
-            String line = lineArray[i];
-            if (StringUtils.isEmpty(line)) continue;
+        return parseRedisInfo(infoMap);
+    }
 
-            // 判断是否是节点名
-            if (line.startsWith(BaseConstant.WELL_NUMBER)) {
-                if (i != 0) infoMap.put(section, fieldMap);
-
-                section = line.replace(BaseConstant.WELL_NUMBER, BaseConstant.BLANK).trim();
-
-                fieldMap = new HashMap<>();
-                continue;
-            }
-
-            // 分割成左右结构
-            int index = line.indexOf(BaseConstant.COLON);
-            String k = line.substring(0, index);
-            String v = line.substring(index + 1);
-
-            fieldMap.put(k, v);
-
-            // 记录最后一节点
-            if (i == lineArray.length - 1) {
-                infoMap.put(section, fieldMap);
-                break;
-            }
-        }
-
+    /**
+     * 解析redis info 命令的结果
+     *
+     * @param infoMap info命令结果
+     * @return 解析后的class
+     */
+    public static RedisInfo parseRedisInfo(Map<String, Map<String, String>> infoMap) {
         // 映射成class
         String infoMapJson = JsonUtil.objectToJson(infoMap);
         RedisInfo redisInfo = JsonUtil.jsonToObject(infoMapJson, RedisInfo.class);
@@ -126,11 +100,18 @@ public class RedisParser {
             for (Map.Entry<String, String> entry : keyspace.entrySet()) {
                 // db
                 if (entry.getKey().startsWith("db")) {
+                    String key = entry.getKey();
+
+                    int dbIndex = Integer.parseInt(key.replace("db", ""));
+
                     String val = entry.getValue();
 
                     String[] propArray = val.split(BaseConstant.COMMA);
 
                     RedisInfo.Keyspace.DBInfo dbInfo = new RedisInfo.Keyspace.DBInfo();
+
+                    dbInfo.setDbIndex(dbIndex);
+
                     for (String prop : propArray) {
                         int index = prop.indexOf(BaseConstant.EQUAL_SIGN);
                         String k = prop.substring(0, index);
@@ -200,6 +181,55 @@ public class RedisParser {
         }
 
         return redisInfo;
+    }
+
+    /**
+     * 解析redis info 命令的结果
+     *
+     * @param info info命令结果
+     * @return 解析后的class
+     */
+    public static Map<String, Map<String, String>> redisInfo(String info) {
+        // 按回车换行符解析
+        String[] lineArray = info.split(COMMAND_SEPARATOR);
+
+        // 存放每一个节点的数据
+        Map<String, Map<String, String>> infoMap = new HashMap<>();
+
+        // 节点名
+        String section = BaseConstant.BLANK;
+        // 存放每一个节点下各个kv
+        Map<String, String> fieldMap = new HashMap<>();
+        for (int i = 0; i < lineArray.length; i++) {
+            // 按行读取
+            String line = lineArray[i];
+            if (StringUtils.isEmpty(line)) continue;
+
+            // 判断是否是节点名
+            if (line.startsWith(BaseConstant.WELL_NUMBER)) {
+                if (i != 0) infoMap.put(section, fieldMap);
+
+                section = line.replace(BaseConstant.WELL_NUMBER, BaseConstant.BLANK).trim();
+
+                fieldMap = new HashMap<>();
+                continue;
+            }
+
+            // 分割成左右结构
+            int index = line.indexOf(BaseConstant.COLON);
+            String k = line.substring(0, index);
+            String v = line.substring(index + 1);
+
+            fieldMap.put(k, v);
+
+            // 记录最后一节点
+            if (i == lineArray.length - 1) {
+                infoMap.put(section, fieldMap);
+                break;
+            }
+        }
+
+        return infoMap;
     }
 
     /**

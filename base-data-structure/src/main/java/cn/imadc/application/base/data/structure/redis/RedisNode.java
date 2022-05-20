@@ -28,4 +28,8 @@ public enum RedisNode implements IEnumAble {
     public String v() {
         return this.name();
     }
+
+    public static RedisNode of(int value) {
+        return RedisNode.values()[value];
+    }
 }
