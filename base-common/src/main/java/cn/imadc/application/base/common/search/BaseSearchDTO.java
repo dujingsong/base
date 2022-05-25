@@ -17,6 +17,8 @@ public class BaseSearchDTO implements Serializable {
 
     private LocalDate startDate;
     private LocalDate endDate;
+    private LocalDate startDateTime;
+    private LocalDate endDateTime;
     private String keywords;
 
     private Map<String, String> extra;
