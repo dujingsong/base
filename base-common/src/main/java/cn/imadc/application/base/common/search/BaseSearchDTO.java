@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @Getter
@@ -17,8 +18,8 @@ public class BaseSearchDTO implements Serializable {
 
     private LocalDate startDate;
     private LocalDate endDate;
-    private LocalDate startDateTime;
-    private LocalDate endDateTime;
+    private LocalDateTime startDateTime;
+    private LocalDateTime endDateTime;
     private String keywords;
 
     private Map<String, String> extra;
