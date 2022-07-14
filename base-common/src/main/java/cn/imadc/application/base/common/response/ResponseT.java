@@ -1,11 +1,19 @@
 package cn.imadc.application.base.common.response;
 
-import cn.imadc.application.base.common.code.ResponseCode;
+import cn.imadc.application.base.common.code.BaseResponseCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 
+/**
+ * <p>
+ * 带泛型的响应体基类
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2021-12-17
+ */
 @Getter
 @Setter
 public class ResponseT<T extends Object> implements Serializable {
@@ -30,10 +38,10 @@ public class ResponseT<T extends Object> implements Serializable {
     }
 
     public static <T> ResponseT<T> success(T body) {
-        return new ResponseT<T>(ResponseCode.SUCCESS, body);
+        return new ResponseT<T>(BaseResponseCode.SUCCESS, body);
     }
 
     public static <T> ResponseT<T> error(String msg) {
-        return new ResponseT<T>(ResponseCode.ERROR, msg);
+        return new ResponseT<T>(BaseResponseCode.ERROR, msg);
     }
 }

@@ -8,6 +8,7 @@
         <artifactId>base</artifactId>
         <groupId>cn.imadc.application</groupId>
         <version>release-0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>base-auth-jwt</artifactId>
@@ -41,7 +42,7 @@
         <dependency>
             <groupId>cn.imadc.application</groupId>
             <artifactId>base-common</artifactId>
-            <version>${base.version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

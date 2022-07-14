@@ -9,6 +9,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+/**
+ * <p>
+ * 查询参数基类
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2021-12-17
+ */
 @Getter
 @Setter
 public class BaseSearchDTO implements Serializable {

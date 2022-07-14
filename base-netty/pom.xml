@@ -8,10 +8,10 @@
         <groupId>cn.imadc.application</groupId>
         <artifactId>base</artifactId>
         <version>release-0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>base-netty</artifactId>
-    <version>release-0.0.2</version>
     <packaging>jar</packaging>
 
     <name>base-netty</name>
@@ -30,7 +30,7 @@
         <dependency>
             <groupId>cn.imadc.application</groupId>
             <artifactId>base-common</artifactId>
-            <version>${base.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <!-- netty -->
         <dependency>
