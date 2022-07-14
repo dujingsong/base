@@ -12,6 +12,7 @@
     </parent>
 
     <artifactId>base</artifactId>
+    <version>release-0.0.2</version>
     <packaging>pom</packaging>
 
     <name>base</name>
@@ -63,7 +64,7 @@
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.9.0</version>
                 <configuration>
-                    <generateBackupPoms>false</generateBackupPoms>
+                    <generateBackupPoms>true</generateBackupPoms>
                 </configuration>
             </plugin>
         </plugins>
