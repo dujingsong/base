@@ -8,6 +8,8 @@
         <groupId>cn.imadc.application</groupId>
         <artifactId>base-dependencies</artifactId>
         <version>release-0.0.2</version>
+        <!-- https://stackoverflow.com/questions/7612309/maven-non-resolvable-parent-pom -->
+        <relativePath>../base-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>base</artifactId>
@@ -25,8 +27,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <!-- 锁定基础框架版本 -->
-        <base.version>release-0.0.2</base.version>
     </properties>
 
     <modules>
@@ -57,5 +57,18 @@
             <type>maven-plugin</type>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.9.0</version>
+                <configuration>
+                    <generateBackupPoms>true</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

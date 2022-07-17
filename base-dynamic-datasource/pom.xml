@@ -8,10 +8,10 @@
         <groupId>cn.imadc.application</groupId>
         <artifactId>base</artifactId>
         <version>release-0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>base-dynamic-datasource</artifactId>
-    <version>release-0.0.2</version>
 
     <name>base-dynamic-datasource</name>
 

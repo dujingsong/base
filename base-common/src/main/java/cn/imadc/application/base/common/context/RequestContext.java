@@ -7,7 +7,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import static java.lang.ThreadLocal.withInitial;
 
 /**
+ * <p>
  * 会话上下文
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2022-05-24
  */
 public class RequestContext extends ConcurrentHashMap<String, Object> {
 

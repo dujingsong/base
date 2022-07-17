@@ -8,10 +8,10 @@
         <groupId>cn.imadc.application</groupId>
         <artifactId>base</artifactId>
         <version>release-0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>base-code-generator</artifactId>
-    <version>release-0.0.2</version>
     <packaging>jar</packaging>
 
     <name>base-code-generator</name>

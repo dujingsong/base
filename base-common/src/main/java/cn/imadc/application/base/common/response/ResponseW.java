@@ -1,11 +1,19 @@
 package cn.imadc.application.base.common.response;
 
-import cn.imadc.application.base.common.code.ResponseCode;
+import cn.imadc.application.base.common.code.BaseResponseCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 
+/**
+ * <p>
+ * 响应体基类
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2021-12-17
+ */
 @Getter
 @Setter
 public class ResponseW implements Serializable {
@@ -30,18 +38,18 @@ public class ResponseW implements Serializable {
     }
 
     public static ResponseW success() {
-        return new ResponseW(ResponseCode.SUCCESS);
+        return new ResponseW(BaseResponseCode.SUCCESS);
     }
 
     public static ResponseW error() {
-        return new ResponseW(ResponseCode.ERROR);
+        return new ResponseW(BaseResponseCode.ERROR);
     }
 
     public static ResponseW success(Object body) {
-        return new ResponseW(ResponseCode.SUCCESS, body);
+        return new ResponseW(BaseResponseCode.SUCCESS, body);
     }
 
     public static ResponseW error(String msg) {
-        return new ResponseW(ResponseCode.ERROR, msg);
+        return new ResponseW(BaseResponseCode.ERROR, msg);
     }
 }
