@@ -18,9 +18,11 @@ public class BaseConstant {
     public static final String EQUAL_SIGN = "=";
     public static final String COLON = ":";
     public static final String QUESTION_MARK = "?";
+    public static final String SEMICOLON = ";";
 
     // --------------------日期常量--------------------
     public static final String YYYY_MM_DD = "YYYY-MM-dd";
+    public static final String YYYY_MM_DD_HH_MM_SS = "YYYY-MM-dd HH:mm:ss";
 
     // --------------------数据列标识-------------------
     public final static String CREATE_BY = "create_by";

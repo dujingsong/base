@@ -1,4 +1,4 @@
-package cn.imadc.application.base.data.structure.redis;
+package cn.imadc.application.base.data.structure.rocketmq;
 
 import cn.imadc.application.base.common.action.IEnumAble;
 import lombok.AllArgsConstructor;
@@ -6,19 +6,19 @@ import lombok.Getter;
 
 /**
  * <p>
- * redis节点类型
+ * rocketMQ节点类型
  * </p>
  *
  * @author 杜劲松
- * @since 2022-03-05
+ * @since 2022-05-31
  */
 @Getter
 @AllArgsConstructor
-public enum RedisNode implements IEnumAble {
+public enum RocketMQNode implements IEnumAble {
 
     MASTER(0, "主节点"),
     SLAVE(1, "从节点"),
-    SENTINEL(2, "哨兵节点"),
+    NAMESRV(2, "namesrv节点"),
     ;
 
     private final int value;
@@ -29,7 +29,7 @@ public enum RedisNode implements IEnumAble {
         return this.name();
     }
 
-    public static RedisNode of(int value) {
-        return RedisNode.values()[value];
+    public static RocketMQNode of(int value) {
+        return RocketMQNode.values()[value];
     }
 }
