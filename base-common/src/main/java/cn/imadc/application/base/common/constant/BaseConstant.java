@@ -1,5 +1,7 @@
 package cn.imadc.application.base.common.constant;
 
+import java.time.format.DateTimeFormatter;
+
 /**
  * <p>
  * 系统基础常量
@@ -23,6 +25,7 @@ public class BaseConstant {
     // --------------------日期常量--------------------
     public static final String YYYY_MM_DD = "YYYY-MM-dd";
     public static final String YYYY_MM_DD_HH_MM_SS = "YYYY-MM-dd HH:mm:ss";
+    public static final DateTimeFormatter FORMAT_YYYY_MM_DD_HH_MM_SS = DateTimeFormatter.ofPattern(YYYY_MM_DD_HH_MM_SS);
 
     // --------------------数据列标识-------------------
     public final static String CREATE_BY = "create_by";
@@ -36,6 +39,12 @@ public class BaseConstant {
 
     public final static String CREATE_BY_ID_F = "createById";
     public final static String UPDATE_BY_ID_F = "updateById";
+
+    public final static String CREATE_TIME = "create_time";
+    public final static String UPDATE_TIME = "update_time";
+
+    public final static String CREATE_TIME_F = "createTime";
+    public final static String UPDATE_TIME_F = "updateTime";
 
     public final static Long SYSTEM_ID = 0L;
     public final static String SYSTEM_NAME = "system";
