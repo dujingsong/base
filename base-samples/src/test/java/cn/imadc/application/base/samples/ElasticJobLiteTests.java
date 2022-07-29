@@ -1,6 +1,5 @@
 package cn.imadc.application.base.samples;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
 import org.apache.shardingsphere.elasticjob.api.ShardingContext;
 import org.apache.shardingsphere.elasticjob.lite.api.bootstrap.impl.ScheduleJobBootstrap;
@@ -8,26 +7,25 @@ import org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter;
 import org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperConfiguration;
 import org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperRegistryCenter;
 import org.apache.shardingsphere.elasticjob.simple.job.SimpleJob;
-import org.apache.shardingsphere.elasticjob.tracing.api.TracingConfiguration;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.Test;
 
-import javax.sql.DataSource;
-
-@SpringBootTest
-class BaseSamplesApplicationTests {
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2022-07-27
+ */
+public class ElasticJobLiteTests {
 
     @Test
-    void contextLoads() {
-
+    public void testJob() {
         new ScheduleJobBootstrap(createRegistryCenter(), new MyJob(), createJobConfiguration()).schedule();
-        while (true) {
-        }
     }
 
     private static CoordinatorRegistryCenter createRegistryCenter() {
-        ZookeeperConfiguration zookeeperConfiguration = new ZookeeperConfiguration("10.100.14.89:2181", "BaseSamplesApplicationTests");
+        ZookeeperConfiguration zookeeperConfiguration = new ZookeeperConfiguration("10.100.14.89:2181", "my-job");
         zookeeperConfiguration.setMaxSleepTimeMilliseconds(6000);
         CoordinatorRegistryCenter regCenter = new ZookeeperRegistryCenter(zookeeperConfiguration);
         regCenter.init();
@@ -35,19 +33,9 @@ class BaseSamplesApplicationTests {
     }
 
     private static JobConfiguration createJobConfiguration() {
-        DataSource dataSource = DataSourceBuilder.create()
-                .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://10.100.15.50:3306/job_event_storage?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false")
-                .username("root")
-                .password("xsmysql")
-                .type(MysqlDataSource.class)
-                .build();
-        TracingConfiguration tracingConfiguration = new TracingConfiguration("RDB", dataSource);
-
         // 创建作业配置
         return JobConfiguration.newBuilder("MyJob", 3)
                 .cron("0/5 * * * * ?")
-                .addExtraConfigurations(tracingConfiguration)
                 .build();
     }
 
@@ -72,5 +60,4 @@ class BaseSamplesApplicationTests {
             }
         }
     }
-
 }

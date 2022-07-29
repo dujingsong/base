@@ -42,17 +42,17 @@
         </dependency>
         <dependency>
             <groupId>cn.imadc.application</groupId>
-            <artifactId>base-redisson</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.imadc.application</groupId>
             <artifactId>base-common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-elastic-job</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 

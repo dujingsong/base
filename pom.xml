@@ -43,6 +43,7 @@
         <module>base-netty</module>
         <module>base-data-structure</module>
         <module>base-lettuce</module>
+        <module>base-elastic-job</module>
     </modules>
 
     <dependencies>

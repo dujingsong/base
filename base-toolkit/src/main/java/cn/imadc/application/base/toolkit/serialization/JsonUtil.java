@@ -7,6 +7,14 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.util.List;
 
+/**
+ * <p>
+ * JSON工具类
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2022-07-21
+ */
 public class JsonUtil {
 
     private static final SerializeConfig serializeConfig;
@@ -23,14 +31,36 @@ public class JsonUtil {
             SerializerFeature.DisableCircularReferenceDetect
     };
 
+    /**
+     * 转换为json字符串
+     *
+     * @param source 待转换为json字符串的对象
+     * @return json字符串
+     */
     public static String objectToJson(Object source) {
         return JSON.toJSONString(source, serializeConfig, features);
     }
 
+    /**
+     * json字符串转换为对象
+     *
+     * @param source json字符串
+     * @param clazz  对象的类型
+     * @param <T>    对象的类型
+     * @return 对象
+     */
     public static <T> T jsonToObject(String source, Class<T> clazz) {
         return JSON.parseObject(source, clazz);
     }
 
+    /**
+     * json字符串转换为对象列表
+     *
+     * @param source json字符串
+     * @param clazz  对象类型
+     * @param <T>    对象类型
+     * @return 对象列表
+     */
     public static <T> List<T> jsonToList(String source, Class<T> clazz) {
         return JSON.parseArray(source, clazz);
     }

@@ -3,5 +3,48 @@ spring:
   application:
     name: base-samples
   profiles:
-    active: redisson
+    active:
 
+# elasticjob配置
+# https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/elasticjob-lite/configuration/spring-boot-starter/
+elasticjob:
+  reg-center:
+    # host1:2181,host2:2181
+    serverLists: 10.100.14.89:2181
+    namespace: BaseSamplesApplicationTests
+    baseSleepTimeMilliseconds: 1000
+    maxSleepTimeMilliseconds: 6000
+    maxRetries: 3
+    sessionTimeoutMilliseconds: 60000
+    connectionTimeoutMilliseconds: 15000
+    # 连接 ZooKeeper 的权限令牌
+    digest:
+  tracing:
+    type: RDB
+    dataSource:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://10.100.15.50:3306/job_event_storage?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+      password: xsmysql
+    includeJobNames:
+    excludeJobNames:
+  jobs:
+    MySimpleJob:
+      elasticJobClass: cn.imadc.application.base.samples.elasticjob.MySimpleJob
+      cron: 0/5 * * * * ?
+      timeZone: GMT+08:00
+      sharding-total-count: 3
+      sharding-item-parameters: "0=Beijing,1=Shanghai,2=Guangzhou"
+      failover: false
+      misfire: true
+      overwrite: true
+    MySimpleJob1:
+      elasticJobClass: cn.imadc.application.base.samples.elasticjob.MySimpleJob1
+      cron: 0/5 * * * * ?
+      timeZone: GMT+08:00
+      sharding-total-count: 3
+      sharding-item-parameters: "0=Beijing,1=Shanghai,2=Guangzhou"
+      failover: false
+      misfire: true
+      jobParameter: "12312"
+      overwrite: true
