@@ -47,12 +47,8 @@
         </dependency>
         <dependency>
             <groupId>cn.imadc.application</groupId>
-            <artifactId>base-elastic-job</artifactId>
+            <artifactId>base-rocketmq</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 
