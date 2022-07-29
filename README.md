@@ -14,20 +14,20 @@
 
 | 模块                                                             | 介绍                     |
 |----------------------------------------------------------------|------------------------|
-| [base-auth-jwt](./base-auth-jwt/README.md)                     | 基础架构-基础框架-JWT实现封装      |
-| [base-code-generator](base-code-generator/README.md)           | 基础架构-基础框架-代码生成工具       |
-| [base-common](base-common/README.md)                           | 基础架构-基础框架-公用组件         |
-| [base-data-structure](base-data-structure/README.md)           | 基础架构-基础框架-常用数据结构类型     |
-| [base-dynamic-datasource](base-dynamic-datasource/README.md)   | 基础架构-基础框架-动态数据源        |
-| [base-elastic-job](base-elastic-job/README.md)                 | 基础架构-基础框架-分布式定时任务      |
-| [base-lettuce](base-lettuce/README.md)                         | 基础架构-基础框架-redis交互组件    |
-| [base-mybatis-plus](base-mybatis-plus/README.md)               | 基础架构-基础框架-mybatis-plus |
-| [base-netty](base-netty/README.md)                             | 基础架构-基础框架-netty        |
-| [base-redisson](base-redisson/README.md)                       | 基础架构-基础框架-redisson     |
-| [base-rocketmq](base-rocketmq/README.md)                       | 基础架构-基础框架-rocketmq     |
-| [base-samples](ase-samples/README.md)                          | 基础架构-基础框架-示例工程         |
-| [base-skeleton-dependency](base-skeleton-dependency/README.md) | 基础架构-基础框架-骨架工程依赖       |
-| [base-toolkit](base-toolkit/README.md)                         | 基础架构-基础框架-常用工具类        |
+| [base-auth-jwt](base-auth-jwt/README.MD)                       | 基础架构-基础框架-JWT实现封装      |
+| [base-code-generator](base-code-generator/README.MD)           | 基础架构-基础框架-代码生成工具       |
+| [base-common](base-common/README.MD)                           | 基础架构-基础框架-公用组件         |
+| [base-data-structure](base-data-structure/README.MD)           | 基础架构-基础框架-常用数据结构类型     |
+| [base-dynamic-datasource](base-dynamic-datasource/README.MD)   | 基础架构-基础框架-动态数据源        |
+| [base-elastic-job](base-elastic-job/README.MD)                 | 基础架构-基础框架-分布式定时任务      |
+| [base-lettuce](base-lettuce/README.MD)                         | 基础架构-基础框架-redis交互组件    |
+| [base-mybatis-plus](base-mybatis-plus/README.MD)               | 基础架构-基础框架-mybatis-plus |
+| [base-netty](base-netty/README.MD)                             | 基础架构-基础框架-netty        |
+| [base-redisson](base-redisson/README.MD)                       | 基础架构-基础框架-redisson     |
+| [base-rocketmq](base-rocketmq/README.MD)                       | 基础架构-基础框架-rocketmq     |
+| [base-samples](ase-samples/README.MD)                          | 基础架构-基础框架-示例工程         |
+| [base-skeleton-dependency](base-skeleton-dependency/README.MD) | 基础架构-基础框架-骨架工程依赖       |
+| [base-toolkit](base-toolkit/README.MD)                         | 基础架构-基础框架-常用工具类        |
 
 可以根据需求引入各个模块。
 
