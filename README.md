@@ -49,3 +49,6 @@ mvn versions:revert
 3. 提交： 
 mvn versions:commit
 ~~~
+
+### markdown中可直接黏贴使用的图标
+[emojipedia](https://www.emojipedia.org/)
