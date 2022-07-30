@@ -1,6 +1,6 @@
 # elastic-job模块
 
-## 分布式定时组件，采用elasticjob作为依赖实现
+## 分布式定时任务组件，采用elasticjob作为依赖实现
 
 ### usage
 
