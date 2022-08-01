@@ -4,21 +4,30 @@ spring:
     name: base-samples
   profiles:
     active:
-# rocketmq
-rocketmq:
-  # host:port;host:port
-  name-server: 10.100.2.51:9876;10.100.13.106:9876
-  producer:
-    group: PID_BASE_SAMPLES_DEV
-    sendMessageTimeout: 3000
-    retryTimesWhenSendFailed: 2
-    retryTimesWhenSendAsyncFailed: 2
-    retryNextServer: false
-    access-key: xsbankRocketmq
-    secret-key: xsbankP@ssw0rd
-    enableMsgTrace: true
-  consumer:
-    access-key: xsbankRocketmq
-    secret-key: xsbankP@ssw0rd
-    topic-biz-a: TOPIC_BA_DEMO_DEV
-    consumer-biz-a: CID_BA_DEMO_DEV
+# druid
+  datasource:
+    druid:
+      url: jdbc:p6spy:mysql://10.100.15.50:3306/app_skeleton?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+      password: xsmysql
+      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+      initial-size: 10
+      min-idle: 10
+      max-active: 100
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      max-open-prepared-statements: 20
+      validation-query: SELECT 1
+      validation-query-timeout: 1000
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      max-evictable-idle-time-millis: 300000
+
+#mybatis-plus配置
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto

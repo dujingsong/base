@@ -44,6 +44,8 @@
         <module>base-data-structure</module>
         <module>base-lettuce</module>
         <module>base-elastic-job</module>
+        <module>base-datasource-druid</module>
+        <module>base-datasource-decorator-p6spy</module>
     </modules>
 
     <dependencies>
