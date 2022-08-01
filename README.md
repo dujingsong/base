@@ -19,6 +19,7 @@
 | [base-common](base-common/README.md)                                         | 基础架构-基础框架-公用组件         |
 | [base-data-structure](base-data-structure/README.md)                         | 基础架构-基础框架-常用数据结构类型     |
 | [base-datasource-decorator-p6spy](base-datasource-decorator-p6spy/README.md) | 基础架构-基础框架-数据源sql打印     |
+| [base-datasource-druid](base-datasource-druid/README.md)                     | 基础架构-基础框架-数据库连接池druid  |
 | [base-dynamic-datasource](base-dynamic-datasource/README.md)                 | 基础架构-基础框架-动态数据源        |
 | [base-elastic-job](base-elastic-job/README.md)                               | 基础架构-基础框架-分布式定时任务      |
 | [base-lettuce](base-lettuce/README.md)                                       | 基础架构-基础框架-redis交互组件    |
