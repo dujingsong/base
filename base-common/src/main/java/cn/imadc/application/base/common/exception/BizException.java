@@ -2,6 +2,14 @@ package cn.imadc.application.base.common.exception;
 
 import java.io.Serializable;
 
+/**
+ * <p>
+ * 业务异常
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2021-12-17
+ */
 public class BizException extends RuntimeException implements Serializable {
     static final long serialVersionUID = -1L;
 

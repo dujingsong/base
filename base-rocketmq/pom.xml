@@ -6,20 +6,37 @@
         <artifactId>base</artifactId>
         <groupId>cn.imadc.application</groupId>
         <version>release-0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>base-rocketmq</artifactId>
-    <version>release-0.0.2</version>
     <name>base-rocketmq</name>
 
     <properties>
+        <!-- 项目基础设置 -->
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-toolkit</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

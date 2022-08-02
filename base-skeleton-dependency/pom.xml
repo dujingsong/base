@@ -6,6 +6,7 @@
         <artifactId>base</artifactId>
         <groupId>cn.imadc.application</groupId>
         <version>release-0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,7 +15,10 @@
     <name>base-skeleton-dependency</name>
 
     <properties>
+        <!-- 项目基础设置 -->
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -45,13 +49,13 @@
         <dependency>
             <groupId>cn.imadc.application</groupId>
             <artifactId>base-common</artifactId>
-            <version>${base.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>cn.imadc.application</groupId>
             <artifactId>base-mybatis-plus</artifactId>
-            <version>${base.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -62,19 +66,25 @@
         <dependency>
             <groupId>cn.imadc.application</groupId>
             <artifactId>base-code-generator</artifactId>
-            <version>${base.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>cn.imadc.application</groupId>
             <artifactId>base-toolkit</artifactId>
-            <version>${base.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>cn.imadc.application</groupId>
             <artifactId>base-auth-jwt</artifactId>
-            <version>${base.version}</version>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-data-structure</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

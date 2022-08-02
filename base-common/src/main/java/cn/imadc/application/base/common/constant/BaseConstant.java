@@ -1,5 +1,7 @@
 package cn.imadc.application.base.common.constant;
 
+import java.time.format.DateTimeFormatter;
+
 /**
  * <p>
  * 系统基础常量
@@ -17,16 +19,35 @@ public class BaseConstant {
     public static final String WELL_NUMBER = "#";
     public static final String EQUAL_SIGN = "=";
     public static final String COLON = ":";
+    public static final String QUESTION_MARK = "?";
+    public static final String SEMICOLON = ";";
 
     // --------------------日期常量--------------------
     public static final String YYYY_MM_DD = "YYYY-MM-dd";
+    public static final String YYYY_MM_DD_HH_MM_SS = "YYYY-MM-dd HH:mm:ss";
+    public static final DateTimeFormatter FORMAT_YYYY_MM_DD_HH_MM_SS = DateTimeFormatter.ofPattern(YYYY_MM_DD_HH_MM_SS);
 
     // --------------------数据列标识-------------------
     public final static String CREATE_BY = "create_by";
     public final static String UPDATE_BY = "update_by";
 
+    public final static String CREATE_BY_F = "createBy";
+    public final static String UPDATE_BY_F = "updateBy";
+
     public final static String CREATE_BY_ID = "create_by_id";
     public final static String UPDATE_BY_ID = "update_by_id";
+
+    public final static String CREATE_BY_ID_F = "createById";
+    public final static String UPDATE_BY_ID_F = "updateById";
+
+    public final static String CREATE_TIME = "create_time";
+    public final static String UPDATE_TIME = "update_time";
+
+    public final static String CREATE_TIME_F = "createTime";
+    public final static String UPDATE_TIME_F = "updateTime";
+
+    public final static Long SYSTEM_ID = 0L;
+    public final static String SYSTEM_NAME = "system";
 
     // --------------------删除标识--------------------
     public static final String DEL_FLAG = "del_flag";

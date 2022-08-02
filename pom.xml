@@ -8,6 +8,8 @@
         <groupId>cn.imadc.application</groupId>
         <artifactId>base-dependencies</artifactId>
         <version>release-0.0.2</version>
+        <!-- https://stackoverflow.com/questions/7612309/maven-non-resolvable-parent-pom -->
+        <relativePath>../base-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>base</artifactId>
@@ -15,12 +17,16 @@
     <packaging>pom</packaging>
 
     <name>base</name>
+    <description>基础架构-基础框架</description>
 
     <properties>
-        <base.version>release-0.0.2</base.version>
+        <!-- 项目基础设置 -->
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
     </properties>
 
     <modules>
@@ -37,6 +43,9 @@
         <module>base-netty</module>
         <module>base-data-structure</module>
         <module>base-lettuce</module>
+        <module>base-elastic-job</module>
+        <module>base-datasource-druid</module>
+        <module>base-datasource-decorator-p6spy</module>
     </modules>
 
     <dependencies>
@@ -51,5 +60,18 @@
             <type>maven-plugin</type>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.9.0</version>
+                <configuration>
+                    <generateBackupPoms>true</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

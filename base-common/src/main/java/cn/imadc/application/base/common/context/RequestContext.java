@@ -7,7 +7,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import static java.lang.ThreadLocal.withInitial;
 
 /**
+ * <p>
  * 会话上下文
+ * </p>
+ *
+ * @author 杜劲松
+ * @since 2022-05-24
  */
 public class RequestContext extends ConcurrentHashMap<String, Object> {
 
@@ -57,6 +62,20 @@ public class RequestContext extends ConcurrentHashMap<String, Object> {
     @SuppressWarnings("unchecked")
     public <T> T get(@NonNull String key, @NonNull Class<T> clazz) {
         return (T) super.get(key);
+    }
+
+    /**
+     * 根据键和值类型获取
+     *
+     * @param key   键
+     * @param clazz 值类型
+     * @param <T>   值类型
+     * @return 值
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T get(@NonNull String key, @NonNull Class<T> clazz, T defaultValue) {
+        T value = (T) super.get(key);
+        return null != value ? value : defaultValue;
     }
 
     /**
