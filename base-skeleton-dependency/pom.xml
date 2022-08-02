@@ -80,6 +80,12 @@
             <artifactId>base-auth-jwt</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-data-structure</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

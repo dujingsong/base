@@ -24,7 +24,13 @@
 release-0.0.2版本
 
 #### ✴ features
-* elastic-job组件
+* 新增base-elastic-job组件
+* 新增base-datasource-druid组件
+* 新增base-datasource-decorator-p6spy组件
+* 新增base-rocketmq组件
+* base-skeleton-dependency引入数据结构模块base-data-structure
+* base-data-structure模块增加树形结构
+* 增加说明文档
 
 #### 🐞 bug fix
 
