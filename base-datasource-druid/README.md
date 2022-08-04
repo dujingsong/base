@@ -45,7 +45,7 @@ spring:
       max-evictable-idle-time-millis: 300000
 ~~~
 
-### 原理
+### 💡 原理
 spring-boot-autoconfigure依赖下spring.factories文件中有下面的自动装配配置类:
 ~~~
 org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration

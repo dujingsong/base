@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>base-elastic-job</artifactId>
+    <artifactId>base-log</artifactId>
 
-    <name>base-elastic-job</name>
+    <name>base-log</name>
 
     <properties>
         <!-- 项目基础设置 -->
@@ -23,20 +23,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.shardingsphere.elasticjob</groupId>
-            <artifactId>elasticjob-lite-spring-boot-starter</artifactId>
-        </dependency>
-        <!-- 注解简化代码 -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <!-- 数据源支持 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

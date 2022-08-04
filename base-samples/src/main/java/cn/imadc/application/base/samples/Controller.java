@@ -1,6 +1,9 @@
 package cn.imadc.application.base.samples;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +19,7 @@ import java.util.UUID;
  * @author 杜劲松
  * @since 2022-08-01
  */
+@Slf4j
 @AllArgsConstructor
 @RestController
 @RequestMapping("/")
@@ -25,6 +29,10 @@ public class Controller {
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index() {
+
+//        Logger logger = LoggerFactory.getLogger(Controller.class);
+//        logger.info("asdasdsa");
+
         List<User> users = testService.list();
 //        System.out.println(users.size());
 
