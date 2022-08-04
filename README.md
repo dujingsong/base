@@ -23,6 +23,7 @@
 | [base-dynamic-datasource](base-dynamic-datasource/README.md)                 | 基础架构-基础框架-动态数据源        |
 | [base-elastic-job](base-elastic-job/README.md)                               | 基础架构-基础框架-分布式定时任务      |
 | [base-lettuce](base-lettuce/README.md)                                       | 基础架构-基础框架-redis交互组件    |
+| [base-log](base-log/README.md)                                               | 基础架构-基础框架-日志打印组件       |
 | [base-mybatis-plus](base-mybatis-plus/README.md)                             | 基础架构-基础框架-mybatis-plus |
 | [base-netty](base-netty/README.md)                                           | 基础架构-基础框架-netty        |
 | [base-redisson](base-redisson/README.md)                                     | 基础架构-基础框架-redisson     |

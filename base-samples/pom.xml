@@ -80,6 +80,12 @@
             <artifactId>base-elastic-job</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-log</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
