@@ -47,6 +47,8 @@
         <module>base-datasource-druid</module>
         <module>base-datasource-decorator-p6spy</module>
         <module>base-log</module>
+        <module>base-cloud</module>
+        <module>base-graceful-shutdown</module>
     </modules>
 
     <dependencies>

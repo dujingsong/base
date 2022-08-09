@@ -7,8 +7,9 @@
 引入依赖
 ~~~
 <dependency>
-    <groupId>com.alibaba</groupId>
-    <artifactId>druid-spring-boot-starter</artifactId>
+    <groupId>cn.imadc.application</groupId>
+    <artifactId>base-datasource-druid</artifactId>
+    <version>${project.version}</version>
 </dependency>
 ~~~
 如果mysql数据库，需要引入mysql驱动

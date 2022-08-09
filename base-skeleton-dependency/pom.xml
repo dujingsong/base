@@ -86,6 +86,24 @@
             <artifactId>base-data-structure</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-log</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-datasource-druid</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.imadc.application</groupId>
+            <artifactId>base-datasource-decorator-p6spy</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

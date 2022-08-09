@@ -15,6 +15,7 @@
 | 模块                                                                           | 介绍                     |
 |------------------------------------------------------------------------------|------------------------|
 | [base-auth-jwt](base-auth-jwt/README.md)                                     | 基础架构-基础框架-JWT实现封装      |
+| [base-cloud](base-cloud/README.md)                                           | 基础架构-基础框架-微服务相关组件      |
 | [base-code-generator](base-code-generator/README.md)                         | 基础架构-基础框架-代码生成工具       |
 | [base-common](base-common/README.md)                                         | 基础架构-基础框架-公用组件         |
 | [base-data-structure](base-data-structure/README.md)                         | 基础架构-基础框架-常用数据结构类型     |
@@ -54,4 +55,5 @@ mvn versions:commit
 ~~~
 
 ### markdown中可直接黏贴使用的图标
+
 [emojipedia](https://www.emojipedia.org/)

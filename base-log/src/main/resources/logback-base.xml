@@ -28,6 +28,9 @@
     <!-- 日志文件存放路径 -->
     <property name="log.file.path.full" value="${log.file.path}/${log.app.name}/${log.app.node.name}/"/>
 
+    <!-- 日志打印级别 -->
+    <property name="log.root.level" value="${app.log.root.level}:-INFO"/>
+
     <!-- 输出到文件 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.file.path.full}/${log.app.name}.log</file>
@@ -51,14 +54,14 @@
     </appender>
 
     <springProfile name="default">
-        <root level="${local.log.root.level}">
+        <root level="${log.root.level}">
             <appender-ref ref="STDOUT"/>
             <appender-ref ref="FILE"/>
         </root>
     </springProfile>
 
     <springProfile name="dev">
-        <root level="${local.log.root.level}">
+        <root level="${log.root.level}">
             <appender-ref ref="STDOUT"/>
         </root>
     </springProfile>

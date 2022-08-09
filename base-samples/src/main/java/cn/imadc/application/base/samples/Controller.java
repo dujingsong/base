@@ -1,5 +1,6 @@
 package cn.imadc.application.base.samples;
 
+import cn.imadc.application.base.common.thread.BaseThreadPoolExecutor;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * <p>
@@ -25,8 +30,17 @@ public class Controller {
 
     private final ITestService testService;
 
+    private final AtomicLong threadIndex = new AtomicLong(0);
+
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index() {
+
+        BaseThreadPoolExecutor baseThreadPoolExecutor = new BaseThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100), new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r, "MyThread_" + threadIndex.incrementAndGet());
+            }
+        });
 
         List<User> users = testService.list();
 
