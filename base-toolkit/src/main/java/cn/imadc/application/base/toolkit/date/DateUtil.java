@@ -36,4 +36,14 @@ public class DateUtil {
     public static String formatFull(LocalDateTime localDateTime) {
         return null == localDateTime ? null : localDateTime.format(FORMAT_YYYY_MM_DD_HH_MM_SS);
     }
+
+    /**
+     * 解析日期
+     *
+     * @param yyyyMMDDHHMMSSDateStr 字符串格式的日期
+     * @return 解析后的日期
+     */
+    public static LocalDateTime parse(String yyyyMMDDHHMMSSDateStr) {
+        return null == yyyyMMDDHHMMSSDateStr ? null : LocalDateTime.parse(yyyyMMDDHHMMSSDateStr, FORMAT_YYYY_MM_DD_HH_MM_SS);
+    }
 }
