@@ -24,7 +24,7 @@
     <property name="base.log.appender.rolling.policy.total.size.cap" value="${app.log.file.total.size.cap:-10GB}"/>
 
     <!-- 日志文件存放路径 -->
-    <property name="base.log.file.path.full" value="${log.file.path}/${log.app.name}/${log.app.node.name}/"/>
+    <property name="base.log.file.path.full" value="${base.log.file.path}/${base.log.app.name}/${base.log.app.node.name}/"/>
 
     <!-- 日志打印级别 -->
     <property name="base.log.root.level" value="${app.log.root.level}:-INFO"/>
