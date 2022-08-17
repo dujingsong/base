@@ -1,68 +1,74 @@
 <included>
 
     <!-- 应用服务名称 -->
-    <property name="log.app.name" value="${app.name:-app}"/>
+    <property name="base.log.app.name" value="${app.name:-app}"/>
 
     <!-- 应用服务节点名称 -->
-    <property name="log.app.node.name" value="${app.node.name:-node01}"/>
+    <property name="base.log.app.node.name" value="${app.node.name:-node01}"/>
 
     <!-- 日志文件存放路径 -->
-    <property name="log.file.path" value="${app.log.path:-/logs}"/>
+    <property name="base.log.file.path" value="${app.log.path:-/logs}"/>
 
     <!-- 控制台输出的日志格式 -->
-    <property name="log.appender.encoder.pattern.console"
-              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${log.app.name}] [${log.app.node.name}] [%level] [%logger{36}:%-4line] - %msg%n"/>
+    <property name="base.log.appender.encoder.pattern.console"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${base.log.app.name}] [${base.log.app.node.name}] [%level] [%logger{36}:%-4line] - %msg%n"/>
 
     <!-- 文件输出的日志格式 -->
-    <property name="log.appender.encoder.pattern.file"
-              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${log.app.name}] [${log.app.node.name}] [%level] [%logger{36}:%-4line] - %msg%n"/>
+    <property name="base.log.appender.encoder.pattern.file"
+              value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${base.log.app.name}] [${base.log.app.node.name}] [%level] [%logger{36}:%-4line] - %msg%n"/>
 
     <!-- 日志文件保留的天数 -->
-    <property name="log.appender.rolling.policy.max.history"
-              value="${app.log.file.max.history:-30}"/>
+    <property name="base.log.appender.rolling.policy.max.history" value="${app.log.file.max.history:-30}"/>
 
     <!-- 日志文件保留的大小 -->
-    <property name="log.appender.rolling.policy.total.size.cap"
-              value="${app.log.file.total.size.cap:-10GB}"/>
+    <property name="base.log.appender.rolling.policy.total.size.cap" value="${app.log.file.total.size.cap:-10GB}"/>
 
     <!-- 日志文件存放路径 -->
-    <property name="log.file.path.full" value="${log.file.path}/${log.app.name}/${log.app.node.name}/"/>
+    <property name="base.log.file.path.full" value="${log.file.path}/${log.app.name}/${log.app.node.name}/"/>
 
     <!-- 日志打印级别 -->
-    <property name="log.root.level" value="${app.log.root.level}:-INFO"/>
+    <property name="base.log.root.level" value="${app.log.root.level}:-INFO"/>
+
 
     <!-- 输出到文件 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.file.path.full}/${log.app.name}.log</file>
+        <file>${base.log.file.path.full}/${base.log.app.name}.log</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${log.file.path.full}/%d{yyyy-MM-dd}/${log.app.name}.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>${log.appender.rolling.policy.max.history}</maxHistory>
-            <totalSizeCap>${log.appender.rolling.policy.total.size.cap}</totalSizeCap>
+            <fileNamePattern>${base.log.file.path.full}/%d{yyyy-MM-dd}/${base.log.app.name}.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>${base.log.appender.rolling.policy.max.history}</maxHistory>
+            <totalSizeCap>${base.log.appender.rolling.policy.total.size.cap}</totalSizeCap>
         </rollingPolicy>
 
         <encoder>
-            <pattern>${log.appender.encoder.pattern.file}</pattern>
+            <pattern>${base.log.appender.encoder.pattern.file}</pattern>
         </encoder>
     </appender>
 
     <!-- 输出到控制台 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${log.appender.encoder.pattern.console}</pattern>
+            <pattern>${base.log.appender.encoder.pattern.console}</pattern>
         </encoder>
     </appender>
 
     <springProfile name="default">
-        <root level="${log.root.level}">
+        <root level="${base.log.root.level}">
             <appender-ref ref="STDOUT"/>
             <appender-ref ref="FILE"/>
         </root>
     </springProfile>
 
     <springProfile name="dev">
-        <root level="${log.root.level}">
+        <root level="${base.log.root.level}">
             <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="sit,uat,prd">
+        <root level="${base.log.root.level}">
+            <appender-ref ref="FILE"/>
         </root>
     </springProfile>
 
