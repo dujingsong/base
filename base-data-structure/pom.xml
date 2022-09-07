@@ -7,7 +7,7 @@
     <parent>
         <groupId>cn.imadc.application</groupId>
         <artifactId>base</artifactId>
-        <version>release-0.0.3</version>
+        <version>release-0.0.4</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 

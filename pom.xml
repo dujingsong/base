@@ -7,13 +7,13 @@
     <parent>
         <groupId>cn.imadc.application</groupId>
         <artifactId>base-dependencies</artifactId>
-        <version>release-0.0.3</version>
+        <version>release-0.0.4</version>
         <!-- https://stackoverflow.com/questions/7612309/maven-non-resolvable-parent-pom -->
         <relativePath>../base-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>base</artifactId>
-    <version>release-0.0.3</version>
+    <version>release-0.0.4</version>
     <packaging>pom</packaging>
 
     <name>base</name>
