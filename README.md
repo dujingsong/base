@@ -57,3 +57,10 @@ mvn versions:commit
 ### markdown中可直接黏贴使用的图标
 
 [emojipedia](https://www.emojipedia.org/)
+
+
+### 感谢
+
+[感谢JetBrains提供的IntelliJ_IDEA开源授权许可](https://jb.gg/OpenSourceSupport)
+
+![das](doc/static/jb_beam.png)
