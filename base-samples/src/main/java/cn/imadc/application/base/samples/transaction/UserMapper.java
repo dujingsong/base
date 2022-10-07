@@ -1,4 +1,4 @@
-package cn.imadc.application.base.samples;
+package cn.imadc.application.base.samples.transaction;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

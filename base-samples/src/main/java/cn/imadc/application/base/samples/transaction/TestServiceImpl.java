@@ -1,6 +1,5 @@
-package cn.imadc.application.base.samples;
+package cn.imadc.application.base.samples.transaction;
 
-import cn.imadc.application.base.common.exception.BizException;
 import cn.imadc.application.base.mybatisplus.repository.impl.BaseMPServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

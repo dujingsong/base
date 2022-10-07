@@ -75,15 +75,21 @@
 <!--            <version>1.8.0</version>-->
 <!--        </dependency>-->
 
+<!--        <dependency>-->
+<!--            <groupId>cn.imadc.application</groupId>-->
+<!--            <artifactId>base-elastic-job</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>cn.imadc.application</groupId>
-            <artifactId>base-elastic-job</artifactId>
+            <artifactId>base-log</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>cn.imadc.application</groupId>
-            <artifactId>base-log</artifactId>
+            <artifactId>base-kafka</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
