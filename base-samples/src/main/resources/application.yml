@@ -60,7 +60,7 @@ spring:
       sasl:
         mechanism: SCRAM-SHA-256
         jaas:
-          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="kafka" password="Xsbank_kafka";
+          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="kafka" password="kafka";
 
 
 #mybatis-plus配置
