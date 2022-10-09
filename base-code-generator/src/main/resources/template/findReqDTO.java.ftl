@@ -1,4 +1,4 @@
-package com.wxsbank.base.iamp.basic.rbac.${package.ModuleName}.dto.request;
+package cn.imadc.base.iamp.basic.rbac.${package.ModuleName}.dto.request;
 
 import cn.imadc.application.base.common.search.BaseSearchDTO;
 import lombok.Getter;

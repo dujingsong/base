@@ -34,7 +34,7 @@ public class RedisClient {
 
             Channel channel = bootstrap.connect(host, port).sync().channel();
             channelMap.put(channel.id(), channel);
-            send(channel, "auth Xsbankredis");
+            send(channel, "auth redis");
 
             for (int i = 0; i < 10; i++) {
                 send(channel, "info");
