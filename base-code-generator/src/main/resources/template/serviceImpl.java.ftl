@@ -11,7 +11,7 @@ import ${package.Service}.${table.serviceName};
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import cn.imadc.application.base.common.response.ResponseW;
-import com.wxsbank.base.iamp.core.data.Constant;
+import cn.imadc.base.iamp.core.data.Constant;
 import ${package.Parent}.dto.request.${entity}FindReqDTO;
 
 /**
