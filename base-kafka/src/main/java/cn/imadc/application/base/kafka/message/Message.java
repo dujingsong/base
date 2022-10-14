@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- *
+ * 消息体
  * </p>
  *
  * @author 杜劲松

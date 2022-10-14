@@ -7,7 +7,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 
 /**
  * <p>
- *
+ * 发送回调
  * </p>
  *
  * @author 杜劲松
