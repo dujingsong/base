@@ -8,13 +8,8 @@ import cn.imadc.application.base.mybatisplus.repository.IBaseMPService;
  * </p>
  *
  * @author 杜劲松
- * @since 2022-08-01
+ * @since 2022-10-14
  */
-public interface ITestService extends IBaseMPService<User> {
-
-    void asdasd(User user);
-
+public interface IUserService extends IBaseMPService<User> {
     User find();
-
-    User find1();
 }

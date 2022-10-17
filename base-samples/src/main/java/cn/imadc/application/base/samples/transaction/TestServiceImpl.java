@@ -1,6 +1,7 @@
 package cn.imadc.application.base.samples.transaction;
 
 import cn.imadc.application.base.mybatisplus.repository.impl.BaseMPServiceImpl;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,10 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
+@AllArgsConstructor
 public class TestServiceImpl extends BaseMPServiceImpl<UserMapper, User> implements ITestService {
 
+    private final IUserService userService;
 
     @Override
     public void asdasd(User user) {
@@ -24,5 +27,15 @@ public class TestServiceImpl extends BaseMPServiceImpl<UserMapper, User> impleme
 //        log.info("保存");
 
 //        throw new BizException("adasd");
+    }
+
+    @Override
+    public User find() {
+        return super.getById(1L);
+    }
+
+    @Override
+    public User find1() {
+        return userService.find();
     }
 }
