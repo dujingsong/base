@@ -13,7 +13,7 @@
     </parent>
 
     <artifactId>base</artifactId>
-    <version>release-0.0.4</version>
+    <version>release-0.0.5</version>
     <packaging>pom</packaging>
 
     <name>base</name>
