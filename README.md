@@ -54,12 +54,19 @@ mvn versions:revert
 mvn versions:commit
 ~~~
 
+## 🎡分支管理
+
+![das](doc/static/git_model.png)
+
+[A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+
+## ✨ 其它说明
 ### markdown中可直接黏贴使用的图标
 
 [emojipedia](https://www.emojipedia.org/)
 
 
-### 🥰感谢
+## 🥰感谢
 
 [感谢JetBrains提供的IntelliJ_IDEA开源授权许可](https://jb.gg/OpenSourceSupport)
 
