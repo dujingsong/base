@@ -1,4 +1,4 @@
-package cn.imadc.application.base.samples;
+package cn.imadc.application.base.samples.transaction;
 
 import cn.imadc.application.base.common.thread.BaseThreadPoolExecutor;
 import lombok.AllArgsConstructor;

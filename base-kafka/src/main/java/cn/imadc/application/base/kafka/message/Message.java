@@ -1,4 +1,4 @@
-package cn.imadc.application.base.rocketmq.message;
+package cn.imadc.application.base.kafka.message;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,8 +18,6 @@ import java.io.Serializable;
 public class Message implements Serializable {
 
     private String topic;
-    private String tags;
-    private String producerGroup;
     private String key;
     private String content;
 
@@ -27,8 +25,6 @@ public class Message implements Serializable {
     @Override
     public String toString() {
         return "topic:" + topic
-                + ",tags:" + tags
-                + ",producerGroup:" + producerGroup
                 + ",key:" + key
                 + ",content:" + content
                 ;

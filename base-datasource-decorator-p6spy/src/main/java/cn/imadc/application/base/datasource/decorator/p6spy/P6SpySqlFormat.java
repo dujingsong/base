@@ -1,5 +1,6 @@
 package cn.imadc.application.base.datasource.decorator.p6spy;
 
+import cn.imadc.application.base.datasource.decorator.p6spy.properties.BaseP6SpyProperties;
 import com.p6spy.engine.common.P6Util;
 import com.p6spy.engine.spy.appender.MessageFormattingStrategy;
 
@@ -13,10 +14,9 @@ import com.p6spy.engine.spy.appender.MessageFormattingStrategy;
  */
 public class P6SpySqlFormat implements MessageFormattingStrategy {
 
-    @Override
     public String formatMessage(int connectionId, String now, long elapsed, String category, String prepared, String sql, String url) {
 //        return now + "|" + elapsed + "|" + category + "|connection " + connectionId + "|url " + url + "|" + P6Util.singleLine(prepared) + "|" + P6Util.singleLine(sql);
-        return "-------------------------------------sql execution information-------------------------------------"
+        String formatMessage = "-------------------------------------sql execution information-------------------------------------"
                 + "\n"
                 + "sql         : " + P6Util.singleLine(sql)
                 + "\n"
@@ -25,5 +25,13 @@ public class P6SpySqlFormat implements MessageFormattingStrategy {
                 + "connectionId: " + connectionId
                 + "\n"
                 + "took        : " + elapsed;
+
+        if (null != BaseP6SpyProperties.getShowConnectionUrl() && BaseP6SpyProperties.getShowConnectionUrl()) {
+            formatMessage = formatMessage
+                    + "\n"
+                    + "url         : " + url;
+        }
+
+        return formatMessage;
     }
 }

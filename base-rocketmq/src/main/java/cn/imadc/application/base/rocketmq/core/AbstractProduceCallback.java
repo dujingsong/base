@@ -5,7 +5,7 @@ import org.apache.rocketmq.client.producer.SendResult;
 
 /**
  * <p>
- *
+ * 消息发送回调
  * </p>
  *
  * @author 杜劲松

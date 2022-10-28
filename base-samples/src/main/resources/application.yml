@@ -1,3 +1,7 @@
+base:
+  p6spy:
+    show-connection-url: true
+
 # 应用名称
 spring:
   application:
@@ -6,72 +10,152 @@ spring:
     active:
 # druid
   datasource:
-    druid:
-      url: jdbc:p6spy:mysql://10.100.15.50:3306/app_skeleton?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
-      username: root
-      password: xsmysql
-      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-      initial-size: 10
-      min-idle: 10
-      max-active: 100
-      pool-prepared-statements: true
-      max-pool-prepared-statement-per-connection-size: 20
-      max-open-prepared-statements: 20
-      validation-query: SELECT 1
-      validation-query-timeout: 1000
-      test-on-borrow: true
-      test-on-return: true
-      test-while-idle: true
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-      max-evictable-idle-time-millis: 300000
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: jdbc:p6spy:mysql://10.100.15.50:3306/app_skeleton?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+          username: root
+          password: xsmysql
+          driver-class-name: com.p6spy.engine.spy.P6SpyDriver # 3.2.0开始支持SPI可省略此配置
+          druid:
+            initial-size: 10
+            min-idle: 10
+            max-active: 100
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            validation-query: SELECT 1
+            validation-query-timeout: 1000
+            test-on-borrow: true
+            test-on-return: true
+            test-while-idle: true
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            max-evictable-idle-time-millis: 300000
+
+        slave_1:
+          url: jdbc:p6spy:mysql://10.100.15.50:3306/app_skeleton1?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+          username: root
+          password: xsmysql
+          driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+          druid:
+            initial-size: 10
+            min-idle: 10
+            max-active: 100
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            validation-query: SELECT 1
+            validation-query-timeout: 1000
+            test-on-borrow: true
+            test-on-return: true
+            test-while-idle: true
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            max-evictable-idle-time-millis: 300000
+#    druid:
+#      url: jdbc:p6spy:mysql://192.168.2.5:3306/app_skeleton?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+#      username: root
+#      password: Root@123
+#      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+#      initial-size: 10
+#      min-idle: 10
+#      max-active: 100
+#      pool-prepared-statements: true
+#      max-pool-prepared-statement-per-connection-size: 20
+#      max-open-prepared-statements: 20
+#      validation-query: SELECT 1
+#      validation-query-timeout: 1000
+#      test-on-borrow: true
+#      test-on-return: true
+#      test-while-idle: true
+#      time-between-eviction-runs-millis: 60000
+#      min-evictable-idle-time-millis: 300000
+#      max-evictable-idle-time-millis: 300000
+#  kafka:
+#    bootstrap-servers:
+#      - 192.168.2.5:19092
+#      - 192.168.2.5:29092
+#      - 192.168.2.5:39092
+#    client-id: base-samples
+#    consumer:
+#      # 一次拉取请求最少需要返回这么多的消息
+#      fetch-min-size: 20
+#      # 一次拉取请求没有达到最少的消息量时等待的时间
+#      fetch-max-wait: 10s
+#      # 消费组名称
+#      groupId: CID_BA_KAFKA_CLUSTER000_DEV
+#      # 心跳间隔时间
+#      heartbeat-interval: 100ms
+#      # 当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+#      auto-offset-reset: earliest
+#      # 是否自动提交offset
+#      enable-auto-commit: true
+#      # 间隔多久提交offset
+#      auto-commit-interval: 100ms
+#      # 消息的键值序列化方式
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    producer:
+#      acks: all
+#      batchSize: 2MB
+#      bufferMemory: 10MB
+#      retries: 0
+#    properties:
+#      security:
+#        protocol: SASL_PLAINTEXT
+#      sasl:
+#        mechanism: SCRAM-SHA-256
+#        jaas:
+#          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="kafka" password="kafka";
+
 
 #mybatis-plus配置
 mybatis-plus:
   global-config:
     db-config:
       id-type: auto
-elasticjob:
-  # 注册中心配置
-  reg-center:
-    # host1:2181,host2:2181
-    serverLists: 10.100.14.89:2181,10.100.14.90:2181,10.100.14.91:2181
-    namespace: BaseSamplesApplicationTests
-    baseSleepTimeMilliseconds: 1000
-    maxSleepTimeMilliseconds: 60000
-    maxRetries: 3
-    sessionTimeoutMilliseconds: 60000
-    connectionTimeoutMilliseconds: 15000
-    # 连接 ZooKeeper 的权限令牌
-    digest:
-  # 任务执行记录跟踪配置
-  tracing:
-    type: RDB
-    dataSource:
-      driverClassName: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://10.100.15.50:3306/job_event_storage?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
-      username: root
-      password: xsmysql
-    includeJobNames:
-    excludeJobNames:
-  # 任务定义
-  jobs:
-    MySimpleJob:
-      elasticJobClass: cn.imadc.application.base.samples.elasticjob.MySimpleJob
-      cron: 0/5 * * * * ?
-      timeZone: GMT+08:00
-      sharding-total-count: 3
-      sharding-item-parameters: "0=Beijing,1=Shanghai,2=Guangzhou"
-      failover: false
-      misfire: true
-      overwrite: true
-    MySimpleJob1:
-      elasticJobClass: cn.imadc.application.base.samples.elasticjob.MySimpleJob1
-      cron: 0/5 * * * * ?
-      timeZone: GMT+08:00
-      sharding-total-count: 3
-      sharding-item-parameters: "0=Beijing,1=Shanghai,2=Guangzhou"
-      failover: false
-      misfire: true
-      jobParameter: "12312"
-      overwrite: true
+#elasticjob:
+#  # 注册中心配置
+#  reg-center:
+#    # host1:2181,host2:2181
+#    serverLists: 10.100.14.89:2181,10.100.14.90:2181,10.100.14.91:2181
+#    namespace: BaseSamplesApplicationTests
+#    baseSleepTimeMilliseconds: 1000
+#    maxSleepTimeMilliseconds: 60000
+#    maxRetries: 3
+#    sessionTimeoutMilliseconds: 60000
+#    connectionTimeoutMilliseconds: 15000
+#    # 连接 ZooKeeper 的权限令牌
+#    digest:
+#  # 任务执行记录跟踪配置
+#  tracing:
+#    type: RDB
+#    dataSource:
+#      driverClassName: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://10.100.15.50:3306/job_event_storage?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+#      username: root
+#      password: xsmysql
+#    includeJobNames:
+#    excludeJobNames:
+#  # 任务定义
+#  jobs:
+#    MySimpleJob:
+#      elasticJobClass: cn.imadc.application.base.samples.elasticjob.MySimpleJob
+#      cron: 0/5 * * * * ?
+#      timeZone: GMT+08:00
+#      sharding-total-count: 3
+#      sharding-item-parameters: "0=Beijing,1=Shanghai,2=Guangzhou"
+#      failover: false
+#      misfire: true
+#      overwrite: true
+#    MySimpleJob1:
+#      elasticJobClass: cn.imadc.application.base.samples.elasticjob.MySimpleJob1
+#      cron: 0/5 * * * * ?
+#      timeZone: GMT+08:00
+#      sharding-total-count: 3
+#      sharding-item-parameters: "0=Beijing,1=Shanghai,2=Guangzhou"
+#      failover: false
+#      misfire: true
+#      jobParameter: "12312"
+#      overwrite: true

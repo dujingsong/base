@@ -1,4 +1,4 @@
-package cn.imadc.application.base.samples;
+package cn.imadc.application.base.samples.transaction;
 
 import lombok.Getter;
 import lombok.Setter;

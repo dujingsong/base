@@ -28,3 +28,19 @@ category    : statement
 connectionId: 1
 took        : 2
 ~~~
+
+可配置参数：
+~~~
+base:
+  p6spy:
+    # 为true，则在打印sql的时候，同时打印出url连接信息，推荐在多数据源的情况下开启，默认关闭
+    show-connection-url: true
+~~~
+~~~
+[2022-10-14 17:46:35.847] [app] [node01] [INFO] [p6spy:60  ] - -------------------------------------sql execution information-------------------------------------
+sql         : SELECT id,name,username,password,del_flag,create_time,update_time,status FROM user WHERE id=1 
+category    : statement
+connectionId: 20
+took        : 2
+url         : jdbc:mysql://10.100.15.50:3306/app_skeleton?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+~~~

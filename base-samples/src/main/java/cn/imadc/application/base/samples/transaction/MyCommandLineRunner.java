@@ -1,11 +1,9 @@
-package cn.imadc.application.base.samples;
+package cn.imadc.application.base.samples.transaction;
 
+import cn.imadc.application.base.samples.transaction.ITestService;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.UUID;
 
 /**
  * <p>

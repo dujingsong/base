@@ -1,6 +1,6 @@
-package cn.imadc.application.base.rocketmq.util;
+package cn.imadc.application.base.kafka.util;
 
-import cn.imadc.application.base.rocketmq.message.Message;
+import cn.imadc.application.base.kafka.message.Message;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Pattern;
@@ -26,10 +26,6 @@ public class MessageUtil {
             throw new IllegalArgumentException("message topic can not be null");
         }
 
-        if (StringUtils.isEmpty(message.getProducerGroup())) {
-            throw new IllegalArgumentException("message producerGroup can not be null");
-        }
-
         if (StringUtils.isEmpty(message.getContent())) {
             throw new IllegalArgumentException("message content can not be null");
         }
@@ -40,14 +36,6 @@ public class MessageUtil {
 
         if (!message.getTopic().startsWith("TOPIC_")) {
             throw new IllegalArgumentException("message topic should be start with TOPIC_");
-        }
-
-        if (!Pattern.matches("^[A-Z]+[A-Z_]+[A-Z]+$", message.getProducerGroup())) {
-            throw new IllegalArgumentException("message producerGroup invalid");
-        }
-
-        if (!message.getProducerGroup().startsWith("PID_")) {
-            throw new IllegalArgumentException("message producerGroup should be stat with PID_");
         }
 
         if (StringUtils.isEmpty(message.getKey())) {

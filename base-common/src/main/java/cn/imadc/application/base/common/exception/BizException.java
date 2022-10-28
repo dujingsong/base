@@ -1,5 +1,7 @@
 package cn.imadc.application.base.common.exception;
 
+import lombok.Getter;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,7 @@ import java.io.Serializable;
  * @author 杜劲松
  * @since 2021-12-17
  */
+@Getter
 public class BizException extends RuntimeException implements Serializable {
     static final long serialVersionUID = -1L;
 

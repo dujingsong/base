@@ -1,4 +1,4 @@
-package cn.imadc.application.base.samples;
+package cn.imadc.application.base.samples.transaction;
 
 import cn.imadc.application.base.mybatisplus.repository.IBaseMPService;
 
@@ -12,5 +12,9 @@ import cn.imadc.application.base.mybatisplus.repository.IBaseMPService;
  */
 public interface ITestService extends IBaseMPService<User> {
 
-void asdasd(User user);
+    void asdasd(User user);
+
+    User find();
+
+    User find1();
 }

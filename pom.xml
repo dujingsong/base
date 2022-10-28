@@ -49,6 +49,7 @@
         <module>base-log</module>
         <module>base-cloud</module>
         <module>base-graceful-shutdown</module>
+        <module>base-kafka</module>
     </modules>
 
     <dependencies>
