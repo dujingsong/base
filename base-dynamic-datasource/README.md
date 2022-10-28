@@ -36,9 +36,9 @@ spring:
       strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
       datasource:
         master:
-          url: jdbc:p6spy:mysql://10.100.15.50:3306/app_skeleton?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
-          username: root
-          password: xsmysql
+          url: jdbc:p6spy:mysql://host:3306/app_skeleton?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+          username: xxx
+          password: xxx
           driver-class-name: com.p6spy.engine.spy.P6SpyDriver # 3.2.0开始支持SPI可省略此配置
           druid:
             initial-size: 10
@@ -56,9 +56,9 @@ spring:
             max-evictable-idle-time-millis: 300000
 
         slave_1:
-          url: jdbc:p6spy:mysql://10.100.15.50:3306/app_skeleton1?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
-          username: root
-          password: xsmysql
+          url: jdbc:p6spy:mysql://host:3306/app_skeleton1?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+          username: xxx
+          password: xxx
           driver-class-name: com.p6spy.engine.spy.P6SpyDriver
           druid:
             initial-size: 10
