@@ -3,6 +3,7 @@ package cn.imadc.application.base.graceful.shutdown.properties;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.time.Duration;
 
@@ -14,6 +15,7 @@ import java.time.Duration;
  * @author 杜劲松
  * @since 2022-08-05
  */
+@ConfigurationProperties(prefix = "base.graceful.shutdown")
 @Getter
 @Setter
 public class BaseGracefulShutdownProperties {
@@ -28,7 +30,7 @@ public class BaseGracefulShutdownProperties {
     /**
      * Time to wait rocketmq shutdown.
      */
-    private Duration waitRocketmqCompleteTime;
+    private Duration waitRocketmqCompleteTime = Duration.ofSeconds(30);
 
 
     // --- tomcat 优雅关机相关 ---

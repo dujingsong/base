@@ -10,7 +10,6 @@
 <dependency>
     <groupId>cn.imadc.application</groupId>
     <artifactId>base-skeleton-dependency</artifactId>
-    <version>${project.version}</version>
 </dependency>
 ~~~
 

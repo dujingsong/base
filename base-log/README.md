@@ -9,7 +9,6 @@
 <dependency>
     <groupId>cn.imadc.application</groupId>
     <artifactId>base-log</artifactId>
-    <version>${project.version}</version>
 </dependency>
 ~~~
 

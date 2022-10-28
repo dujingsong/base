@@ -49,3 +49,17 @@ release-0.0.3版本
 * 修复3.0.1版本elasticjob-lite-spring-boot-starter的tracing数据源问题
 
 -------------------------------------------------------------------------------
+
+### release-0.0.4
+
+release-0.0.4版本
+
+#### ✴ features
+* 新增base-kafka组件
+* 完善base-dynamic-datasource组件
+* 说明文档完善
+
+#### 🐞 bug fix
+* 修复base-graceful-shutdown模块中的BaseGracefulShutdownProperties没有添加ConfigurationProperties注解问题
+
+-------------------------------------------------------------------------------

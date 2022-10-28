@@ -132,6 +132,6 @@ public class JWT {
     }
 
     public static void main(String[] args) {
-        System.out.println(subject(generate(AuthType.AUTHORIZED, 1L, 5, TimeUnit.SECONDS)));
+        System.out.println(issuer(generate(AuthType.AUTHORIZED, 1L, 5, TimeUnit.SECONDS)));
     }
 }

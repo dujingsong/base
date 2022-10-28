@@ -7,10 +7,10 @@
 引入依赖
 
 ~~~
-        <dependency>
-            <groupId>cn.imadc.application</groupId>
-            <artifactId>base-kafka</artifactId>
-        </dependency>
+<dependency>
+    <groupId>cn.imadc.application</groupId>
+    <artifactId>base-kafka</artifactId>
+</dependency>
 ~~~
 
 生产者yml配置示例

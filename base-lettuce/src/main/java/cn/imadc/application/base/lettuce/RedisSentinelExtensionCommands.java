@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * <p>
- *
+ * 哨兵相关命令补充
  * </p>
  *
  * @author 杜劲松

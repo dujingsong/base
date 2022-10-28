@@ -10,7 +10,6 @@
 <dependency>
     <groupId>cn.imadc.application</groupId>
     <artifactId>base-toolkit</artifactId>
-    <version>${project.version}</version>
 </dependency>
 ~~~
 

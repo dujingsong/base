@@ -9,7 +9,6 @@
 <dependency>
     <groupId>cn.imadc.application</groupId>
     <artifactId>base-elastic-job</artifactId>
-    <version>${project.version}</version>
 </dependency>
 ~~~
 如果需要使用到任务执行记录上报跟踪到mysql，需要引入mysql驱动
