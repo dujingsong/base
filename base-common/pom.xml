@@ -51,6 +51,20 @@
             <artifactId>jackson-annotations</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!-- spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- tomcat-embed-core -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
