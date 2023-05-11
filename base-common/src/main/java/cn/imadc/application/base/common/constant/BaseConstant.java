@@ -28,6 +28,7 @@ public class BaseConstant {
     public static final DateTimeFormatter FORMAT_YYYY_MM_DD_HH_MM_SS = DateTimeFormatter.ofPattern(YYYY_MM_DD_HH_MM_SS);
 
     // --------------------数据列标识-------------------
+    public final static String ID = "id";
     public final static String CREATE_BY = "create_by";
     public final static String UPDATE_BY = "update_by";
 
@@ -51,8 +52,10 @@ public class BaseConstant {
 
     // --------------------删除标识--------------------
     public static final String DEL_FLAG = "del_flag";
+    public static final String DEL_FLAG_F = "delFlag";
     public static final int DEL_VAL = 1;
     public static final int NOT_DEL_VAL = 0;
+    public static final String DEL_SUFFIX = "_DELETED" + System.currentTimeMillis();
 
     // --------------------认证授权--------------------
     public static final String ACCESS_TOKEN = "Access-Token";

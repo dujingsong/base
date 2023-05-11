@@ -24,11 +24,13 @@ public class BaseEntity implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     /**
@@ -58,5 +60,6 @@ public class BaseEntity implements Serializable {
     /**
      * 是否删除0：未删除；1：已删除
      */
+    @TableField(fill = FieldFill.INSERT)
     private Integer delFlag;
 }
