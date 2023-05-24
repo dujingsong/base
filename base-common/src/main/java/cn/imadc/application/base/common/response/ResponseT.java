@@ -37,6 +37,10 @@ public class ResponseT<T extends Object> implements Serializable {
         this.body = body;
     }
 
+    public static <T> ResponseT<T> success() {
+        return new ResponseT<T>(BaseResponseCode.SUCCESS);
+    }
+
     public static <T> ResponseT<T> success(T body) {
         return new ResponseT<T>(BaseResponseCode.SUCCESS, body);
     }

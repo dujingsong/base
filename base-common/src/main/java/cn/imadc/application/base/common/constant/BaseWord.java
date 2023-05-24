@@ -14,6 +14,7 @@ public class BaseWord {
     public static final String OP_FAIL = "操作失败";
     public static final String MK_DIRS_FAIL = "创建文件夹失败";
     public static final String INTERVAL_ERROR = "服务器内部错误...";
+    public static final String ILLEGAL_PARAM = "参数错误";
 
 
     // -----------------------------------------会话相关-----------------------------------------

@@ -21,10 +21,11 @@ public class BaseConstant {
     public static final String COLON = ":";
     public static final String QUESTION_MARK = "?";
     public static final String SEMICOLON = ";";
+    public static final String PERCENT = "%";
 
     // --------------------日期常量--------------------
-    public static final String YYYY_MM_DD = "YYYY-MM-dd";
-    public static final String YYYY_MM_DD_HH_MM_SS = "YYYY-MM-dd HH:mm:ss";
+    public static final String YYYY_MM_DD = "yyyy-MM-dd";
+    public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
     public static final DateTimeFormatter FORMAT_YYYY_MM_DD_HH_MM_SS = DateTimeFormatter.ofPattern(YYYY_MM_DD_HH_MM_SS);
 
     // --------------------数据列标识-------------------
@@ -65,4 +66,8 @@ public class BaseConstant {
      * 错误的ID
      */
     public static final Long ERROR_ID = -9999L;
+    /**
+     * 接口全路径匹配
+     */
+    public static final String GLOBAL_PATH_PATTERNS = "/**";
 }
