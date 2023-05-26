@@ -44,6 +44,7 @@ public class ApplicationRequestContextInterceptor implements HandlerInterceptor 
             applicationRequestContext = applicationContext.getBean(IApplicationRequestContext.class);
         } catch (BeansException beansException) {
             // just ignored
+            log.warn("no application request context assigned");
         }
 
         if (null != applicationRequestContext) {
