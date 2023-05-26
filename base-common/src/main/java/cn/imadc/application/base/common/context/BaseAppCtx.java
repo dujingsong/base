@@ -9,8 +9,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author 杜劲松
  * @since 2023-05-11
  **/
-public class AppCtx {
-
+public class BaseAppCtx {
 
     /**
      * 获取当前会话用户ID

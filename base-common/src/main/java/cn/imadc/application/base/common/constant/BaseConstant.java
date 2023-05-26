@@ -61,6 +61,9 @@ public class BaseConstant {
     // --------------------认证授权--------------------
     public static final String ACCESS_TOKEN = "Access-Token";
 
+    // --------------------日志相关--------------------
+    public static final String TRACE_ID = "traceId";
+
     // --------------------其他常量--------------------
     /**
      * 错误的ID
