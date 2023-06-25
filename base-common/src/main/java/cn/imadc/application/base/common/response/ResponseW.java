@@ -37,6 +37,12 @@ public class ResponseW implements Serializable {
         this.body = body;
     }
 
+    public ResponseW(String code, String msg, Object body) {
+        this.code = code;
+        this.msg = msg;
+        this.body = body;
+    }
+
     public static ResponseW success() {
         return new ResponseW(BaseResponseCode.SUCCESS);
     }
@@ -51,5 +57,9 @@ public class ResponseW implements Serializable {
 
     public static ResponseW error(String msg) {
         return new ResponseW(BaseResponseCode.ERROR, msg);
+    }
+
+    public static ResponseW fromT(ResponseT<?> responseT) {
+        return new ResponseW(responseT.getCode(), responseT.getMsg(), responseT.getBody());
     }
 }
