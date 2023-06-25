@@ -37,6 +37,8 @@ public class ApplicationAuthenticationInterceptor implements HandlerInterceptor 
                 = applicationContext.getBean(IApplicationAuthentication.class);
 
         Api api = currentContext.get(ReqCtxConstant.API, Api.class);
+        if (null != api) currentContext.put(ReqCtxConstant.API, api);
+
         if (null != api && null != api.authType() && api.authType().equals(AuthType.ANONYMOUS)) {
             return true;
         }
