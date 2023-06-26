@@ -51,6 +51,9 @@ public class BaseConstant {
     public final static Long SYSTEM_ID = 0L;
     public final static String SYSTEM_NAME = "system";
 
+    public static final int YES_VAL = 0;
+    public static final int NO_VAL = 1;
+
     // --------------------删除标识--------------------
     public static final String DEL_FLAG = "del_flag";
     public static final String DEL_FLAG_F = "delFlag";
