@@ -12,7 +12,6 @@ public class BaseWord {
 
     // -----------------------------------------基础话术-----------------------------------------
     public static final String OP_FAIL = "操作失败";
-    public static final String MK_DIRS_FAIL = "创建文件夹失败";
     public static final String INTERVAL_ERROR = "服务器内部错误...";
     public static final String ILLEGAL_PARAM = "参数错误";
 
@@ -21,4 +20,7 @@ public class BaseWord {
     public static final String CREDENTIALS_ERROR = "用户名或密码错误";
     public static final String NOT_LOGIN = "尚未登陆";
 
+    // -----------------------------------------文件处理-----------------------------------------
+    public static final String MK_DIRS_FAIL = "创建文件夹失败";
+    public static final String FILE_HANDLE_FAIL = "文件处理失败";
 }
