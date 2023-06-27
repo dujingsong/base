@@ -23,6 +23,7 @@ public class BaseWord {
 
     // -----------------------------------------文件操作-----------------------------------------
     public static final String MK_DIRS_FAIL = "创建文件夹失败";
+    public static final String FILE_HANDLE_FAIL = "文件处理失败";
     public static final String FILE_UPLOAD_FAIL = "文件上传失败";
     public static final String EMPTY_FILE = "文件内容为空";
     public static final String EMPTY_FILE_NAME = "文件名称为空";

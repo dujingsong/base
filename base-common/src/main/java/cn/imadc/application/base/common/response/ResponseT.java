@@ -3,6 +3,7 @@ package cn.imadc.application.base.common.response;
 import cn.imadc.application.base.common.code.BaseResponseCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 
@@ -47,5 +48,9 @@ public class ResponseT<T extends Object> implements Serializable {
 
     public static <T> ResponseT<T> error(String msg) {
         return new ResponseT<T>(BaseResponseCode.ERROR, msg);
+    }
+
+    public boolean isSuccess() {
+        return StringUtils.equals(this.code, BaseResponseCode.SUCCESS);
     }
 }
