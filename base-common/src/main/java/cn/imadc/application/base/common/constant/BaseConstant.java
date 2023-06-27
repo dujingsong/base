@@ -14,6 +14,7 @@ public class BaseConstant {
 
     // --------------------基础常量--------------------
     public static final String COMMA = ",";
+    public static final String DOT = ".";
     public static final String BLANK = "";
     public static final String SLASH = "/";
     public static final String WELL_NUMBER = "#";
