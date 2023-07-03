@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
+import java.beans.Transient;
 import java.io.Serializable;
 
 /**
@@ -50,6 +51,7 @@ public class ResponseT<T extends Object> implements Serializable {
         return new ResponseT<T>(BaseResponseCode.ERROR, msg);
     }
 
+    @Transient
     public boolean isSuccess() {
         return StringUtils.equals(this.code, BaseResponseCode.SUCCESS);
     }

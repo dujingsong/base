@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
+import java.beans.Transient;
 import java.io.Serializable;
 
 /**
@@ -64,6 +65,7 @@ public class ResponseW implements Serializable {
         return new ResponseW(responseT.getCode(), responseT.getMsg(), responseT.getBody());
     }
 
+    @Transient
     public boolean isSuccess() {
         return StringUtils.equals(this.code, BaseResponseCode.SUCCESS);
     }
