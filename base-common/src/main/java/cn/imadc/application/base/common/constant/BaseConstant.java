@@ -23,6 +23,7 @@ public class BaseConstant {
     public static final String QUESTION_MARK = "?";
     public static final String SEMICOLON = ";";
     public static final String PERCENT = "%";
+    public static final String MIDDLE_HORIZONTAL_LINE = "-";
 
     // --------------------日期常量--------------------
     public static final String YYYY_MM_DD = "yyyy-MM-dd";
@@ -77,4 +78,11 @@ public class BaseConstant {
      * 接口全路径匹配
      */
     public static final String GLOBAL_PATH_PATTERNS = "/**";
+
+    // --------------------金额相关--------------------
+
+    /**
+     * 人名币
+     */
+    public static final String CNY = "CNY";
 }
